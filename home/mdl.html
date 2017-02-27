@@ -1,0 +1,314 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      https://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Madera">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" sizes="128x128" href="128x128bigbank.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="128x128bigbank.png">
+    <title>Bigbank</title>
+    
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="128x128bigbank.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Bigbank">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-blue.min.css">
+    <link rel="stylesheet" href="https://getmdl.io/templates/text-only/styles.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33102679-1']);
+  _gaq.push(['_setDomainName', 'bigbank.com.br']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+	  <header class="mdl-layout__header">
+	    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+          <a href="#main" 		class="mdl-layout__tab">Main</a>
+          <a href="#compras" 	class="mdl-layout__tab">Compras</a>
+          <a href="#jornais"  	class="mdl-layout__tab">Jornais</a>
+          <a href="#tools"  	class="mdl-layout__tab">Tools</a>
+          <a href="#search" 	class="mdl-layout__tab is-active">Search</a>
+	    </div>
+	  </header>
+      <main class="mdl-layout__content">
+	    <p align="center" style="color: #000000; background-color: #ffffff"><img src="bigbank50.png"/></p>
+        <div class="mdl-layout__tab-panel" id="main">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<h4>Google</h4>
+					<ul class="demo-list-item mdl-list">
+					  <!--li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="https://www.google.com/android/devicemanager" target="_blank">Androids</a></span></li-->
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="https://books.google.com.br" target="_blank">Books</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.google.com/contacts" target="_blank">Contacts</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://drive.google.com" target="_blank">Drive</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="https://fit.google.com/" target="_blank">Fitness</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://gmail.com" target="_blank">Gmail</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="https://keep.google.com/" target="_blank">Keep</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="https://maps.google.com/locationhistory" target="_blank">Locations</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://maps.google.com" target="_blank">Maps</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<h4>Main</h4>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://cacoo.com/" target="_blank">Cacoo</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="https://bigbank.com.br/codiad/" target="_blank">Codiad</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://kanbanflow.com/" target="_blank">Kanban</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.mindmeister.com/" target="_blank">Mind Maps</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://bigbank.com.br/rss" target="_blank">Reader</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<h4>Backoffice</h4>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="about.html">Backoffice</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://solucaodeproblemas.blogspot.com/" target="_blank">Solu&ccedil;&atilde;o de problemas</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://pesquisando.tumblr.com/" target="_blank">Pesquisando</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://gen.lib.rus.ec/" target="_blank">eBooks</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.ogame.com.br" target="_blank">O Game</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.sports-tracker.com/view_profile/cmadera" target="_blank">Sports-tracker</a></span></li>
+					</ul>
+            	</div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="compras">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<h4>Compras</h4>
+					<ul class="demo-list-item mdl-list">
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.americanas.com.br" target="_blank">Americanas</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.extra.com.br" target="_blank">Extra</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.fastshop.com.br" target="_blank">Fastshop</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.kalunga.com.br" target="_blank">Kalunga</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.kabum.com.br" target="_blank">Kabum</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<h4>&nbsp;</h4>
+					<ul class="demo-list-item mdl-list">
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.mercadolivre.com.br" target="_blank">Mercado livre</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.pontofrio.com.br" target="_blank">Pontofrio</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.submarino.com.br" target="_blank">Submarino</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.saraiva.com.br" target="_blank">Saraiva</a></span></li>
+					  <li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.walmart.com.br" target="_blank">WalMart</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<h4>Supermercados</h4>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.deliveryextra.com.br/" target="_blank">Extra</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.paodeacucar.com.br" target="_blank">Pao de acucar</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.zonasul.com.br" target="_blank">Zona Sul</a></span></li>
+					</ul>
+            	</div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="jornais">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h4>Brazil</h4>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.brasil247.com/" target="_blank">Brasil 24/7</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.cartacapital.com.br/" target="_blank">Carta Capital</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.estadao.com.br/" target="_blank">Estadao</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.folha.com.br/" target="_blank">Folha</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h4>&nbsp;</h4>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.g1.com.br/" target="_blank">G1</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.jb.com.br/" target="_blank">JB</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.oglobo.com.br/" target="_blank">O Globo</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.pragmatismopolitico.com.br/" target="_blank">Pragmatismo Politico</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h4>Argentina</h4>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.lanacion.com.ar" target="_blank">La Nacion [ar]</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.clarin.com" target="_blank">Clarin [ar]</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.lacapital.com.ar" target="_blank">La Capital [ar]</a></span></li>
+					</ul>              
+            	</div>
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h4>Others</h4>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.bbc.com/" target="_blank">BBC [uk]</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.emol.com" target="_blank">El Mercurio [ch]</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.elpais.com" target="_blank">El Pais [es]</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.lemonde.fr" target="_blank">Le Monde [fr]</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.nytimes.com" target="_blank">NY Times [en]</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="http://www.spiegel.de/international/" target="_blank">Spiegel [ge]</a></span></li>
+					</ul>
+            	</div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel" id="tools">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h5>Benchmarks</h5>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.cpubenchmark.net/cpu_list.php" target="_blank">CPU</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.videocardbenchmark.net/gpu_list.php" target="_blank">GPU</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://peacekeeper.futuremark.com/" target="_blank">CPU-Test</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h5>Servers Test</h5>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://online-domain-tools.com/" target="_blank">Domain Tools</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://mxtoolbox.com/" target="_blank">MX Lookup</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://network-tools.com/" target="_blank">Network</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="https://www.ssllabs.com/ssltest/analyze.html" target="_blank">SSL Test</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="https://observatory.mozilla.org/" target="_blank">Site Test</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="https://testmysite.thinkwithgoogle.com" target="_blank">Site speed test</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://en.wikipedia.org/wiki/List_of_Internet_top-level_domains" target="_blank">TLDs</a></span></li>
+					</ul>              
+				</div>
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h5>Status</h5>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="https://www.google.com/analytics/web/?et=#report/visitors-overview/a33102679w60303577p61691612/" target="_blank">Google Analytics</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.google.com/appsstatus#hl=pt-BR&v=status" target="_blank">Google Status</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://downuptime.net/cloudatcost.com.html" target="_blank">CloudAtCost Status</a></span></li>
+					</ul>
+					<h5>Tools</h5>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://savedeo.com/" target="_blank">Savedeo</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://magnet2torrent.com/" target="_blank">magnet2torrent</a></span></li>
+					</ul>
+				</div>
+                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+					<h5>Hosting</h5>
+					<ul class="demo-list-item mdl-list">
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.cloudatcost.com/" target="_blank">Cloud At Cost</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.hostinger.com.br/" target="_blank">Hostinger</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="http://www.softlayer.com/" target="_blank">SoftLayer</a></span></li>
+						<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a class="item" href="https://letsencrypt.org/" target="_blank">Free SSL</a></span></li>
+					</ul>              
+				</div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mdl-layout__tab-panel is-active" id="search">
+        	<center>
+        	<div class="mdl-grid">
+        		<div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone graybox">
+					<form class="form-horizontal" role="form" action="https://www.google.com/search" target="_blank">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					      <input type="hidden" name="mrestrict" value="xhtml"/>
+						  <input type="hidden" name="site" value="search" checked="checked"/>
+						  <input type="text"   class="mdl-textfield__input" size="60" name="q" id="q" placeholder="Search on Google">
+						  <label class="mdl-textfield__label" for="q">Search on Google</label>
+						</div>
+				      <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" name="btnG" value="Google">
+					</form>
+					<form class="form-horizontal" role="form" action="https://www.wolframalpha.com/input/" method="get" target="_blank">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input type="text"   class="mdl-textfield__input" size="60" name="i" id ="i" placeholder="Search on Wolfram Alpha"/>
+						  <label class="mdl-textfield__label" for="i">Search on Wolfram Alpha</label>
+						</div>
+						<input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Wolfram"/>
+					</form>
+					<form class="form-horizontal" role="form" action="https://pt.wikipedia.org/w/index.php" method="get" target="_blank">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input type="text"   class="mdl-textfield__input" size="60" name="search" id="search" placeholder="Search on Wikipedia"/>
+							<label class="mdl-textfield__label" for="search">Search on Wikipedia</label>
+						</div>
+						<input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Wikipedia"/>
+					</form>
+					<form class="form-horizontal" role="form" action="https://websro.correios.com.br/sro_bin/txect01$.QueryList" method="get" target="_blank">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input type="hidden" name="P_TIPO" value="001"/>
+							<input type="hidden" name="P_LINGUA" value="001"/>
+							<input type="text"   class="mdl-textfield__input" size="60" name="P_COD_UNI" id="P_COD_UNI" placeholder="Identificador do objeto, por ex: SS123456789BR. "/>
+							<label class="mdl-textfield__label" for="P_COD_UNI">Search on Correios</label>
+						</div>
+						<input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Correios"/>
+					</form>
+            	</div>
+            </div>
+            </center>
+        </div>
+		<center>
+         <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-phone graybox"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://gmail.com" target="_blank">GMail</a></div>
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-phone graybox"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.facebook.com" target="_blank">Facebook</a></div>
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-phone graybox"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://web.whatsapp.com" target="_blank">WhatsApp</a></div>
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-phone graybox"><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.netflix.com" target="_blank">Netflix</a></div>
+         </div>
+		</center>
+		<hr>
+		
+      </main>
+    </div>
+        <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+  </body>
+</html>
