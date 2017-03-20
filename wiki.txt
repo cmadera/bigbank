@@ -1,0 +1,226 @@
+== Servers config ==
+
+=== Initial setup ===
+Remove erro on
+  vi /etc/apt/sources.list
+
+Update and install sudo
+  apt-get update && apt-get -y upgrade
+
+=== Install Apache PHP  ===
+  apt-get install -y apache2 libapache2-mod-php5 php5 php5-curl
+
+=== SSL Cert Installation ===
+Add repository
+  vi /etc/apt/sources.list
+  deb http://ftp.debian.org/debian jessie-backports main
+
+Update and install
+  apt-get update
+  apt-get install python-certbot-apache -t jessie-backports
+  certbot --apache -d bigbank.com.br
+
+=== Add user ===
+  apt-get install sudo
+  adduser user
+  vi /etc/sudoers
+
+
+=== Install MySQL ===
+  apt-get update && sudo apt-get upgrade
+  apt-get install mysql-server php5-mysql phpmyadmin mcrypt
+  mysql_secure_installation
+
+=== Git ===
+  sudo apt-get install git
+
+=== Source ===
+  http://www.vivaolinux.com.br/dica/PHP-+-Apache-+-MySQL-no-Ubuntu-1204-Instalacao-rapida
+  https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-debian-8
+
+== Bigbank ==
+  apt-get install git
+  cd /var/www/html
+  rm -rf home
+  rm -rf monitor
+  git clone https://github.com/cmadera/bigbank.git
+  git clone https://github.com/cmadera/monitor.git
+  cp monitor/monitor.php .
+  mv bigbank/home/ .
+  mv bigbank/index.php .
+  rm index.html
+  rm -rf bigbank/
+
+== Ionic == 
+=== Install NodeJs ===
+  sudo apt-get update
+  sudo apt-get upgrade
+  sudo apt-get install curl
+  curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+  sudo bash nodesource_setup.sh
+  sudo apt-get install nodejs
+
+=== Install Ionic & Cordova ===
+  sudo npm install -g cordova ionic
+
+* You may need
+  sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+  sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+=== Test ===
+  ionic start myApp tabs
+  cd myApp/
+  ionic serve
+
+
+== Codiad ==
+
+=== Install ===
+  sudo git clone https://github.com/Codiad/Codiad /var/www/html/codiad
+  sudo touch /var/www/html/codiad/config.php
+  sudo chown www-data:www-data -R /var/www/html/codiad
+
+Open your installation with http://your-ip-adress/codiad and finish the installation.
+
+=== Config a new project ===
+After finished the installation (create a html project)
+
+  sudo mkdir /var/www/html
+  sudo rm -rf /var/www/html/codiad/workspace/html
+  sudo ln -s /var/www/html /var/www/html/codiad/workspace/html
+  sudo chown www-data:www-data -R /var/www/html
+
+=== Source ===
+  https://github.com/Codiad/Codiad/archive/v.2.6.6.zip
+
+== RSS ==
+=== Install mcrypt ===
+  sudo php5enmod mcrypt
+  service apache2 restart
+
+=== Instalar o Git se precisar ===
+  sudo apt-get install git
+
+=== Baixar o RSS ===
+  cd /var/www/html/
+  git clone https://tt-rss.org/git/tt-rss.git rss
+
+=== Banco ===
+
+* Criar o banco de dados no http://*.bigbank.com.br/phpmyadmin
+
+* Criar usuário rss e dar acesso ao banco
+
+* Importar o banco anterior
+
+  mysql -u rss -p rss < file.sql
+
+=== Configurar permissões ===
+  cd rss/
+  chmod -R 777 cache/images
+  chmod -R 777 cache/upload
+  chmod -R 777 cache/export
+  chmod -R 777 cache/js
+  chmod -R 777 feed-icons
+  chmod -R 777 lock
+
+* Seguir o passo a passo do http://*.bigbank.com.br/rss
+
+=== Cron ===
+* Configurar o cron para que atualize o status das noticias (usuário não root)
+  crontab -e
+  */30 * * * * /usr/bin/php /var/www/html/rss/update.php --feeds --quiet
+
+* Reiniciar o cron
+  sudo service cron restart
+
+
+
+Run 'dpkg-reconfigure tzdata' if you wish to change the timezone.
+
+== Wiki Installation (MediaWiki) ==
+=== You may need that===
+  sudo apt-get install php5-xcache curl
+
+=== Download and copy to the server ===
+  curl -O https://releases.wikimedia.org/mediawiki/1.27/mediawiki-1.27.0-rc.1.tar.gz
+  sudo mkdir /var/www/html/wiki
+  tar xvzf mediawiki-1.*
+  sudo mv mediawiki-1.*/* /var/www/html/wiki
+
+=== Config ===
+* Editar e salvar o arquivo wiki/LocalSettings.php
+
+* Criar o banco de dados no http://*.bigbank.com.br/phpmyadmin
+
+* Criar usuário wiki e dar acesso ao banco
+
+* Seguir o passo a passo do http://*.bigbank.com.br/wiki
+
+== Server Monitor Installation (SRVMON) ==
+
+=== Download and copy to the server ===
+  http://www.phpservermonitor.org/download/
+
+* Unzip on: /var/www/html 
+  tar xvzf phpservermon-3.1.1.tar.gz
+
+* You may need that
+  sudo apt-get install php5-curl
+  sudo service apache2 restart
+
+* Configurar o Timezone do PHP
+  Usando o TimeZone de aqui: http://php.net/manual/en/timezones.america.php
+  sudo nano /etc/php5/apache2/php.ini
+  sudo service apache2 restart
+
+* Criar o banco de dados no http://*.bigbank.com.br/phpmyadmin
+
+=== Config ===
+* Criar usuário srvmon e dar acesso ao banco
+
+* Seguir o passo a passo do http://*.bigbank.com.br/phpmyadmin
+
+* Configurar o cron para que atualize o status dos servidores
+  -- Incluir o update automático no cron
+  crontab -e
+  */10 * * * * root /usr/bin/php /var/www/html/srvmon/cron/status.cron.php
+
+* Reiniciar o cron
+  sudo service cron restart
+
+== Add new disk ==
+  sudo fdisk /dev/sda3
+  sudo mkfs.ext3 /dev/sda3
+  sudo mkdir /mnt/dsk2
+  sudo mount /dev/sda3 /mnt/dsk2
+
+
+== Webmin ==
+
+=== Installation ===
+   wget http://prdownloads.sourceforge.net/webadmin/webmin_1.810_all.deb
+   dpkg --install webmin_1.810_all.deb
+
+If Debian complains about missing dependencies, you can install them with the command
+   apt-get install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
+
+Change the user group 
+   usermod -g root user
+
+=== Source ===
+   http://www.webmin.com/deb.html
+
+== Wiki contents generation ==
+
+* Para formatar o conteúdo: https://www.mediawiki.org/wiki/Help:Formatting
+* Para colocar tabelas como conteúdo usar este site: http://www.tablesgenerator.com/mediawiki_tables
+* Para incluir imagens: https://www.mediawiki.org/wiki/Help:Images/pt-br
+
+
+== Getting started ==
+* [//www.mediawiki.org/wiki/Special:MyLanguage/Manual:Configuration_settings Configuration settings list]
+* [//www.mediawiki.org/wiki/Special:MyLanguage/Manual:FAQ MediaWiki FAQ]
+* [https://lists.wikimedia.org/mailman/listinfo/mediawiki-announce MediaWiki release mailing list]
+* [//www.mediawiki.org/wiki/Special:MyLanguage/Localisation#Translation_resources Localise MediaWiki for your language]
+* [//www.mediawiki.org/wiki/Special:MyLanguage/Manual:Combating_spam Learn how to combat spam on your wiki]
