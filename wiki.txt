@@ -4,11 +4,18 @@
 Remove erro on
   vi /etc/apt/sources.list
 
-Update and install sudo
+Update and install
   apt-get update && apt-get -y upgrade
+  apt-get dist-upgrade
 
-=== Install Apache PHP  ===
+=== Install Apache PHP5  ===
   apt-get install -y apache2 libapache2-mod-php5 php5 php5-curl
+
+=== Install Apache PHP7  ===
+  apt-get install libapache2-mod-php7.0 php7.0-curl php7.0-json php-memcached php7.0-dev php7.0-mcrypt php7.0-sqlite3 php7.0-mbstring php7.0-mysql
+
+
+Source: https://matheuslima.com.br/instalando-o-apache-2-4-php-7-mysql-lamp/
 
 === SSL Cert Installation ===
 Add repository
@@ -76,6 +83,7 @@ Update and install
 == Codiad ==
 
 === Install ===
+  sudo apt-get install git
   sudo git clone https://github.com/Codiad/Codiad /var/www/html/codiad
   sudo touch /var/www/html/codiad/config.php
   sudo chown www-data:www-data -R /var/www/html/codiad
@@ -98,24 +106,22 @@ After finished the installation (create a html project)
   sudo php5enmod mcrypt
   service apache2 restart
 
-=== Instalar o Git se precisar ===
+=== Get TTRSS ===
   sudo apt-get install git
-
-=== Baixar o RSS ===
   cd /var/www/html/
   git clone https://tt-rss.org/git/tt-rss.git rss
 
-=== Banco ===
+=== Database ===
 
-* Criar o banco de dados no http://*.bigbank.com.br/phpmyadmin
+* Create database http://*.bigbank.com.br/phpmyadmin
 
-* Criar usuário rss e dar acesso ao banco
+* Create user rss into the database
 
-* Importar o banco anterior
+* Restore database
 
   mysql -u rss -p rss < file.sql
 
-=== Configurar permissões ===
+=== Permissions configuration ===
   cd rss/
   chmod -R 777 cache/images
   chmod -R 777 cache/upload
@@ -124,7 +130,7 @@ After finished the installation (create a html project)
   chmod -R 777 feed-icons
   chmod -R 777 lock
 
-* Seguir o passo a passo do http://*.bigbank.com.br/rss
+* Continue on http://*.bigbank.com.br/rss
 
 === Cron ===
 * Configurar o cron para que atualize o status das noticias (usuário não root)
