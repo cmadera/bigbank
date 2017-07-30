@@ -1,5 +1,4 @@
 == Resume ==
-Remove erro on
   vi /etc/apt/sources.list
   apt-get update && apt-get -y upgrade
   apt-get dist-upgrade
@@ -63,6 +62,7 @@ Update and install
   cp monitor/monitor.php .
   mv bigbank/home/ .
   mv bigbank/index.php .
+  mv bigbank/bench.php .
   rm index.html
   rm -rf bigbank/
 
