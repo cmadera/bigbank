@@ -45,6 +45,15 @@ Update and install
   apt-get install mysql-server php5-mysql phpmyadmin mcrypt
   mysql_secure_installation
 
+=== MongoDB ===
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+  echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+  apt-get update
+  apt-get install -y mongodb-org
+  service mongod start
+  service mongod stop
+  service mongod restart
+
 === Git ===
   sudo apt-get install git
 
@@ -204,11 +213,11 @@ Run 'dpkg-reconfigure tzdata' if you wish to change the timezone.
   sudo service cron restart
 
 == Add new disk ==
+  lsblk
   sudo fdisk /dev/sda3
   sudo mkfs.ext3 /dev/sda3
   sudo mkdir /mnt/dsk2
   sudo mount /dev/sda3 /mnt/dsk2
-
 
 == Webmin ==
 
