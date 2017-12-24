@@ -70,7 +70,7 @@
 	    </div>
 	  </header>
       <main class="mdl-layout__content">
-	    <p align="center" style="color: #000000; background-color: #ffffff"><img src="bigbank50.png"/></p>
+	    <!--p align="center" style="color: #000000; background-color: #ffffff"><img src="bigbank50.png"/></p-->
         <div class="mdl-layout__tab-panel" id="main">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
@@ -78,7 +78,7 @@
 					<h5>Google</h5>
 					<ul class="demo-list-item mdl-list">
 					  <!--li class="mdl-list__item"><a href="https://www.google.com/android/devicemanager" target="_blank">Androids</a></li-->
-					  <li class="mdl-list__item"><a href="https://books.google.com.br" target="_blank">Books</a></li>
+					  <li class="mdl-list__item"><a href="https://play.google.com/books" target="_blank">Books</a></li>
 					  <li class="mdl-list__item"><a href="http://www.google.com/contacts" target="_blank">Contacts</a></li>
 					  <li class="mdl-list__item"><a href="http://drive.google.com" target="_blank">Drive</a></li>
 					  <li class="mdl-list__item"><a href="https://fit.google.com/" target="_blank">Fitness</a></li>
@@ -258,42 +258,65 @@
         </div>
         <div class="mdl-layout__tab-panel is-active" id="search">
         	<center>
-        	<div class="mdl-grid">
-        		<div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone graybox">
-					<form class="form-horizontal" role="form" action="https://www.google.com/search" target="_blank">
-						<div style="width: 350px;" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					      <input type="hidden" name="mrestrict" value="xhtml"/>
-						  <input type="hidden" name="site" value="search" checked="checked"/>
-						  <input type="text"   class="mdl-textfield__input" size="60" name="q" id="q" placeholder="Search on Google">
-						  <label class="mdl-textfield__label" for="q">Search on Google</label>
-						</div>
-				      <input type="submit" style="width: 100px; color: #ffffff; background-color: #ff0000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" name="btnG" value="Google">
-					</form>
-					<form class="form-horizontal" role="form" action="https://www.wolframalpha.com/input/" method="get" target="_blank">
-						<div style="width: 350px;" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input type="text"   class="mdl-textfield__input" size="60" name="i" id ="i" placeholder="Search on Wolfram Alpha"/>
-						  <label class="mdl-textfield__label" for="i">Search on Wolfram Alpha</label>
-						</div>
-						<input type="submit" style="width: 100px; color: #ffffff; background-color: #f58220;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" value="Wolfram"/>
-					</form>
-					<form class="form-horizontal" role="form" action="https://pt.wikipedia.org/w/index.php" method="get" target="_blank">
-						<div style="width: 350px;" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input type="text"  class="mdl-textfield__input" size="60" name="search" id="search" placeholder="Search on Wikipedia"/>
-							<label class="mdl-textfield__label" for="search">Search on Wikipedia</label>
-						</div>
-						<input type="submit" style="width: 100px" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Wikipedia"/>
-					</form>
-					<form class="form-horizontal" role="form" action="https://websro.correios.com.br/sro_bin/txect01$.QueryList" method="get" target="_blank">
-						<div style="width: 350px;" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<input type="hidden" name="P_TIPO" value="001"/>
-							<input type="hidden" name="P_LINGUA" value="001"/>
-							<input type="text"   class="mdl-textfield__input" size="60" name="P_COD_UNI" id="P_COD_UNI" placeholder="Identificador do objeto, por ex: SS123456789BR. "/>
-							<label class="mdl-textfield__label" for="P_COD_UNI">Search on Correios</label>
-						</div>
-						<input type="submit" style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" value="Correios"/>
-					</form>
-            	</div>
-            </div>
+	        	<div class="mdl-grid">
+	        		<div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-phone graybox">
+						<form class="form-horizontal" role="form" action="https://www.google.com/search" target="_blank">
+							<div style="width: 350px;" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						      <input type="hidden" name="mrestrict" value="xhtml"/>
+							  <input type="hidden" name="site" value="search" checked="checked"/>
+							  <input type="text"   class="mdl-textfield__input" size="60" name="q" id="q" placeholder="Search on Google">
+							  <label class="mdl-textfield__label" for="q">Search on Google</label>
+							</div>
+					      <input type="submit" style="width: 100px; color: #ffffff; background-color: #ff0000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" name="btnG" value="Google">
+						</form>
+	            	</div>
+	            </div>
+	            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+	              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+						<ul class="demo-list-item mdl-list">
+							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://drive.google.com" target="_blank">Drive</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #ff0000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://gmail.com" target="_blank">GMail</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #feb400;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://keep.google.com/" target="_blank">Keep</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; background-color: #1BA161;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://maps.google.com" target="_blank">Maps</a></li>
+						</ul>
+					</div>
+	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+						<ul class="demo-list-item mdl-list">
+							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.bbc.com/" target="_blank">BBC [uk]</a></li>
+							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://brasil.elpais.com/?cp=3" target="_blank">El Pais</a></li>
+							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.folha.com.br/" target="_blank">Folha</a></li>
+							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.lanacion.com.ar" target="_blank">La Nacion [ar]</a></li>
+						</ul>
+					</div>
+	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+						<ul class="demo-list-item mdl-list">
+							<li class="mdl-list__item"><a style="width: 100px; background-color: #6DC2ED;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://panel.cloudatcost.com" target="_blank">C&C</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; background-color: #6747c7;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://cpanel.hostinger.com.br" target="_blank">Hostinger</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; background-color: #BBBBBB;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://libgen.io/" target="_blank">eBooks</a></li> <!-- old http://gen.lib.rus.ec/ -->
+							<li class="mdl-list__item"><a style="width: 100px; background-color: #ffaf58;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.bigbank.com.br/rss" target="_blank">Reader</a></li>
+						</ul>
+					</div>
+	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+						<ul class="demo-list-item mdl-list">
+							<li class="mdl-list__item"><a style="width: 100px" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.facebook.com" target="_blank">Facebook</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #b00000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.netflix.com" target="_blank">Netflix</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #4bec68;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://web.whatsapp.com" target="_blank">WhatsApp</a></li>
+							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #ed2018;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://www.youtube.com/" target="_blank">YouTube</a></li>
+						</ul>   
+					</div>
+	              </div>
+	        	</section>
+	        	<br>
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+				  <tbody>
+				    <tr>
+				      <td><a href="https://github.com/cmadera" target="_blank">GitHub</a></td>
+				      <td><a href="http://bigbank.com.br/monitor/" target="_blank">Monitor</a></td>
+				      <td><a href="http://bigbank.com.br/codiad/" target="_blank">Codiad</a></td>
+				    </tr>
+				  </tbody>
+				</table>          
             </center>
         </div>
         <div class="mdl-layout__tab-panel" id="about">
@@ -326,33 +349,13 @@
 						      <td><a href="https://cpanel.hostinger.com.br" target="_blank">Hostinger</a></td>
 						    </tr>
 						    <tr>
-						      <td class="mdl-data-table__cell--non-numeric"><a href="http://big.bigbank.com.br" target="_blank"><b>Big</b></a></td>
+						      <td class="mdl-data-table__cell--non-numeric"><a href="http://mqtt.bigbank.com.br" target="_blank"><b>MQTT</b></a></td>
+						      <td><a href="http://masterdb.bigbank.com.br/phpmyadmin" target="_blank"><img src="OK.png" width="20px"/</a></td>
+						      <td><a href="http://bigbank.com.br/mqtt" target="_blank">Dashboard</a></td>
 						      <td>&nbsp;</td>
 						      <td>&nbsp;</td>
 						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td><a href="http://big.bigbank.com.br/bench.php" target="_blank"><img src="OK.png" width="20px"/></a></td>
-						      <td><a href="https://panel.cloudatcost.com" target="_blank">C&C</a></td>
-						    </tr>
-						    <tr>
-						      <td class="mdl-data-table__cell--non-numeric"><a href="http://nctnt.bigbank.com.br" target="_blank"><b>ncTnT</b></a></td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td><a href="http://nctnt.bigbank.com.br/codiad" target="_blank"><img src="OK.png" width="20px"/></a></td>
-						      <td><a href="http://nctnt.bigbank.com.br/bench.php" target="_blank"><img src="OK.png" width="20px"/></a></td>
-						      <td><a href="https://panel.cloudatcost.com" target="_blank">C&C</a></td>
-						    </tr>
-						    <tr>
-						      <td class="mdl-data-table__cell--non-numeric"><a href="http://the.bigbank.com.br" target="_blank"><b>The</b></a></td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td>&nbsp;</td>
-						      <td><a href="http://the.bigbank.com.br/bench.php" target="_blank"><img src="OK.png" width="20px"/></a></td>
+						      <td><a href="http://mqtt.bigbank.com.br/bench.php" target="_blank"><img src="OK.png" width="20px"/></a></td>
 						      <td><a href="https://panel.cloudatcost.com" target="_blank">C&C</a></td>
 						    </tr>
 						    <tr>
@@ -385,7 +388,7 @@
 						      <td><a href="https://download.cloudatcost.com" target="_blank">C@C Files</a></td>
 						      <td><a href="https://github.com/cmadera" target="_blank">GitHub</a></td>
 						      <td><a href="https://www.michelin-ads.com/demo/monitor" target="_blank">Monitor</a></td>
-						      <td><a href="http://webmail1.hostinger.com.br/roundcube/" target="_blank">Email</a></td>
+						      <td><a href="http://webmail1.hostinger.com.br/" target="_blank">Email</a></td>
 						    </tr>
 						  </tbody>
 						</table>
@@ -394,22 +397,11 @@
 			</center>
           <!--/section-->
         </div>
-		<center><br>*Updated 06/08/2017 as 23:00h - &copy; Carlos Madera 1999-2017
+		<center><br>*Updated 24/12/2017 as 09:00h - &copy; Carlos Madera 1999-2018
 		<div class="host"></div>
 		<script>document.querySelector('.host').innerHTML = document.location.hostname;</script>
 		</center>
-      </main>
-	  <footer class="mdl-mega-footer" style="color: #000000; background-color: #ccccff;">
-        <div class="mdl-mega-footer__bottom-section" >
-			<center>
-				<a style="width: 100px; color: #ffffff; background-color: #ff0000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://gmail.com" target="_blank">GMail</a>&nbsp;
-				<a style="width: 100px" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.facebook.com" target="_blank">Facebook</a>&nbsp;
-				<!--a style="width: 100px; color: #ffffff; background-color: #ed2018;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://www.youtube.com/" target="_blank">YouTube</a>&nbsp;-->
-				<a style="width: 100px; color: #ffffff; background-color: #4bec68;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://web.whatsapp.com" target="_blank">WhatsApp</a>&nbsp;
-				<a style="width: 100px; color: #ffffff; background-color: #b00000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.netflix.com" target="_blank">Netflix</a>
-			</center>
-        </div>
-     </footer>      
+      </main> 
     </div>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   </body>
