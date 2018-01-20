@@ -1,5 +1,6 @@
 == Resume ==
   vi /etc/apt/sources.list
+  apt-get remove apt-listchanges
   apt-get update && apt-get -y upgrade
   apt-get dist-upgrade
   apt-get autoremove
