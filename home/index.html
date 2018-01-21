@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -61,33 +62,19 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
 	  <header class="mdl-layout__header">
 	    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-          <a href="#main" 		class="mdl-layout__tab">Main</a>
+          <a href="#search" 	class="mdl-layout__tab is-active">Main</a>
+          <!--a href="#main" 		class="mdl-layout__tab">Main</a-->
           <a href="#compras" 	class="mdl-layout__tab">Shopping</a>
           <a href="#jornais"  	class="mdl-layout__tab">News</a>
           <a href="#tools"  	class="mdl-layout__tab">Tools</a>
-          <a href="#search" 	class="mdl-layout__tab is-active">Search</a>
           <a href="#about"  	class="mdl-layout__tab">About</a>
 	    </div>
 	  </header>
       <main class="mdl-layout__content">
 	    <!--p align="center" style="color: #000000; background-color: #ffffff"><img src="bigbank50.png"/></p-->
-        <div class="mdl-layout__tab-panel" id="main">
+        <!--div class="mdl-layout__tab-panel" id="main">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
-					<h5>Google</h5>
-					<ul class="demo-list-item mdl-list">
-					  <!--li class="mdl-list__item"><a href="https://www.google.com/android/devicemanager" target="_blank">Androids</a></li-->
-					  <li class="mdl-list__item"><a href="https://play.google.com/books" target="_blank">Books</a></li>
-					  <li class="mdl-list__item"><a href="http://www.google.com/contacts" target="_blank">Contacts</a></li>
-					  <li class="mdl-list__item"><a href="http://drive.google.com" target="_blank">Drive</a></li>
-					  <li class="mdl-list__item"><a href="https://fit.google.com/" target="_blank">Fitness</a></li>
-					  <!--li class="mdl-list__item"><a href="http://gmail.com" target="_blank">Gmail</a></li-->
-					  <li class="mdl-list__item"><a href="https://keep.google.com/" target="_blank">Keep</a></li>
-					  <li class="mdl-list__item"><a href="https://maps.google.com/locationhistory" target="_blank">Locations</a></li>
-					  <li class="mdl-list__item"><a href="http://maps.google.com" target="_blank">Maps</a></li>
-					</ul>              
-				</div>
                 <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
 					<h5>Main</h5>
 					<ul class="demo-list-item mdl-list">
@@ -103,7 +90,6 @@
 					<ul class="demo-list-item mdl-list">
 						<li class="mdl-list__item"><a href="http://solucaodeproblemas.blogspot.com/" target="_blank">Solu&ccedil;&atilde;o de problemas</a></li>
 						<li class="mdl-list__item"><a href="http://pesquisando.tumblr.com/" target="_blank">Pesquisando</a></li>
-						<li class="mdl-list__item"><a href="http://libgen.io/" target="_blank">eBooks</a></li> <!-- old http://gen.lib.rus.ec/ -->
 						<li class="mdl-list__item"><a href="https://br.ogame.gameforge.com/" target="_blank">O Game</a></li>
 						<li class="mdl-list__item"><a href="http://www.sports-tracker.com/view_profile/cmadera" target="_blank">Sports-tracker
 						<li class="mdl-list__item"><a href="http://yoskhaz.com/" target="_blank">Yoskhaz</a></li>
@@ -111,7 +97,7 @@
             	</div>
               </div>
           </section>
-        </div>
+        </div-->
         <div class="mdl-layout__tab-panel" id="compras">
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
@@ -273,54 +259,46 @@
 	            </div>
 	            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
 	              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
-						<ul class="demo-list-item mdl-list">
-							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://drive.google.com" target="_blank">Drive</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #ff0000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://gmail.com" target="_blank">GMail</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #feb400;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://keep.google.com/" target="_blank">Keep</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; background-color: #1BA161;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://maps.google.com" target="_blank">Maps</a></li>
-						</ul>
+	                <div class="section__text mdl-cell mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--6-col-phone">
+	                	<table><tr><td>
+							<ul class="demo-list-item mdl-list">
+								<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://drive.google.com" target="_blank">Drive</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #ff0000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://gmail.com" target="_blank">GMail</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #feb400;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://keep.google.com/" target="_blank">Keep</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; background-color: #1BA161;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://maps.google.com" target="_blank">Maps</a></li>
+							</ul>
+	                	</td><td>
+							<ul class="demo-list-item mdl-list">
+								<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.google.com/contacts" target="_blank">Contacts</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; background-color: #BBBBBB;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://play.google.com/books" target="_blank">My Books</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; background-color: #BBBBBB;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://libgen.io/" target="_blank">eBooks</a></li> <!-- old http://gen.lib.rus.ec/ -->
+								<li class="mdl-list__item"><a style="width: 100px; background-color: #ffaf58;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.bigbank.com.br/rss" target="_blank">Reader</a></li>
+							</ul>
+	                	</td></tr></table>
 					</div>
-	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
-						<ul class="demo-list-item mdl-list">
-							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.bbc.com/" target="_blank">BBC [uk]</a></li>
-							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://brasil.elpais.com/?cp=3" target="_blank">El Pais</a></li>
-							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.folha.com.br/" target="_blank">Folha</a></li>
-							<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.lanacion.com.ar" target="_blank">La Nacion [ar]</a></li>
-						</ul>
-					</div>
-	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
-						<ul class="demo-list-item mdl-list">
-							<li class="mdl-list__item"><a style="width: 100px; background-color: #6DC2ED;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://panel.cloudatcost.com" target="_blank">C&C</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; background-color: #6747c7;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://cpanel.hostinger.com.br" target="_blank">Hostinger</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; background-color: #BBBBBB;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://libgen.io/" target="_blank">eBooks</a></li> <!-- old http://gen.lib.rus.ec/ -->
-							<li class="mdl-list__item"><a style="width: 100px; background-color: #ffaf58;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.bigbank.com.br/rss" target="_blank">Reader</a></li>
-						</ul>
-					</div>
-	                <div class="section__text mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
-						<ul class="demo-list-item mdl-list">
-							<li class="mdl-list__item"><a style="width: 100px" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.facebook.com" target="_blank">Facebook</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #b00000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.netflix.com" target="_blank">Netflix</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #4bec68;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://web.whatsapp.com" target="_blank">WhatsApp</a></li>
-							<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #ed2018;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://www.youtube.com/" target="_blank">YouTube</a></li>
-						</ul>   
+	                <div class="section__text mdl-cell mdl-cell--6-col-desktop mdl-cell--6-col-tablet mdl-cell--6-col-phone">
+	                	<table><tr><td>
+							<ul class="demo-list-item mdl-list">
+								<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.bbc.com/" target="_blank">BBC [uk]</a></li>
+								<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://brasil.elpais.com/?cp=3" target="_blank">El Pais</a></li>
+								<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.folha.com.br/" target="_blank">Folha</a></li>
+								<li class="mdl-list__item"><a style="width: 100px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.lanacion.com.ar" target="_blank">La Nacion [ar]</a></li>
+							</ul>
+	                	</td><td>
+							<ul class="demo-list-item mdl-list">
+								<li class="mdl-list__item"><a style="width: 100px" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.facebook.com" target="_blank">Facebook</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #b00000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.netflix.com" target="_blank">Netflix</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #4bec68;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://web.whatsapp.com" target="_blank">WhatsApp</a></li>
+								<li class="mdl-list__item"><a style="width: 100px; color: #ffffff; background-color: #ed2018;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://www.youtube.com/" target="_blank">YouTube</a></li>
+							</ul>   
+	                	</td></tr></table>
 					</div>
 	              </div>
 	        	</section>
-	        	<br>
-				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-				  <tbody>
-				    <tr>
-				      <td><a href="https://github.com/cmadera" target="_blank">GitHub</a></td>
-				      <td><a href="http://bigbank.com.br/monitor/" target="_blank">Monitor</a></td>
-				      <td><a href="http://bigbank.com.br/codiad/" target="_blank">Codiad</a></td>
-				    </tr>
-				  </tbody>
-				</table>          
+
             </center>
         </div>
         <div class="mdl-layout__tab-panel" id="about">
-          <!--section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp"-->
 			<center>
 				<div class="mdl-grid">
 			    	<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone graybox">
@@ -384,9 +362,7 @@
 						<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 						  <tbody>
 						    <tr>
-						      <td class="mdl-data-table__cell--non-numeric"><b>Outros</b></td>
 						      <td><a href="https://download.cloudatcost.com" target="_blank">C@C Files</a></td>
-						      <td><a href="https://github.com/cmadera" target="_blank">GitHub</a></td>
 						      <td><a href="https://www.michelin-ads.com/demo/monitor" target="_blank">Monitor</a></td>
 						      <td><a href="http://webmail1.hostinger.com.br/" target="_blank">Email</a></td>
 						    </tr>
@@ -397,12 +373,37 @@
 			</center>
           <!--/section-->
         </div>
-		<center><br>*Updated 24/12/2017 as 09:00h - &copy; Carlos Madera 1999-2018
+		<center><br>*Updated 10/01/2017 as 01:00h - &copy; Carlos Madera 1999-2018
 		<div class="host"></div>
 		<script>document.querySelector('.host').innerHTML = document.location.hostname;</script>
 		</center>
-      </main> 
-    </div>
+      </main>
+	  <!--footer class="mdl-mega-footer" style="color: #000000; background-color: #ccccff;">
+        <div class="mdl-mega-footer__bottom-section" >
+			<center>
+				<a style="width: 100px; color: #ffffff; background-color: #ff0000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://gmail.com" target="_blank">GMail</a>&nbsp;
+				<a style="width: 100px" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.facebook.com" target="_blank">Facebook</a>&nbsp;
+				<a style="width: 100px; color: #ffffff; background-color: #ed2018;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="https://www.youtube.com/" target="_blank">YouTube</a>&nbsp;
+				<a style="width: 100px; color: #ffffff; background-color: #4bec68;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://web.whatsapp.com" target="_blank">WhatsApp</a>&nbsp;
+				<a style="width: 100px; color: #ffffff; background-color: #b00000;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.netflix.com" target="_blank">Netflix</a>
+			</center>
+        </div>
+     </footer-->      
+		<center>
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+			  <tbody>
+			    <tr>
+					<td><a href="https://panel.cloudatcost.com" target="_blank">C&C</a></td>
+					<td><a href="https://cpanel.hostinger.com.br" target="_blank">Hostinger</a></td>
+					<td><a href="https://github.com/cmadera" target="_blank">GitHub</a></td>
+					<td><a href="http://bigbank.com.br/monitor/" target="_blank">Monitor</a></td>
+					<td><a href="http://bigbank.com.br/codiad/" target="_blank">Codiad</a></td>
+			    </tr>
+			  </tbody>
+			</table>              
+		</center>
+	</div>
+
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   </body>
 </html>
