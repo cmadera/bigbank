@@ -51,8 +51,14 @@
 	    x.style.display = "none";
 	  }
 	}
+
+	function livreSite() {
+	  var x = document.getElementById("livre");
+	  window.open("http://livre.site/"+x.value,'_blank');
+	}
+
 	</script>
-    
+
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
@@ -68,7 +74,7 @@
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.g1.com.br/" target="_blank">G1</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.jb.com.br/" target="_blank">JB</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.oglobo.com.br/" target="_blank">O Globo</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.pragmatismopolitico.com.br/" target="_blank">Pragmatismo Politico</a></li>
+					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.pragmatismopolitico.com.br/" target="_blank">Pragmatismo</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://www.aljazeera.com/" target="_blank">AlJazeera</a></li>
 				</ul>
 				<button id="demo-News" class="mdl-button mdl-js-button">News</button>
@@ -84,31 +90,20 @@
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.lemonde.fr/" target="_blank">Le Monde [fr]</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.spiegel.de/international/" target="_blank">Spiegel [ge]</a></li>
 				</ul>
+				<!--li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px; color: #ffffff; background-color: #feb400;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://www2.correios.com.br/sistemas/rastreamento/default.cfm" target="_blank">Correios</a></li-->
+									
 				<button id="demo-Shopping" class="mdl-button mdl-js-button">Shopping</button>
 				<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"   for="demo-Shopping">
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.americanas.com.br/" target="_blank">Americanas</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.extra.com.br/" target="_blank">Extra</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.fastshop.com.br/" target="_blank">Fastshop</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.kalunga.com.br/" target="_blank">Kalunga</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.kabum.com.br/" target="_blank">Kabum</a></li>
+					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.kabum.com.br/" target="_blank">Kabum</a></li>   
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.mercadolivre.com.br/" target="_blank">Mercado livre</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.pontofrio.com.br/" target="_blank">Pontofrio</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.submarino.com.br/" target="_blank">Submarino</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.saraiva.com.br/" target="_blank">Saraiva</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.walmart.com.br/" target="_blank">WalMart</a></li>
-				</ul>
-				<button id="demo-Supermarket" class="mdl-button mdl-js-button">Supermarket</button>
-				<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"   for="demo-Supermarket">
+					<li disabled="" class="mdl-menu__item mdl-js-ripple-effect">Markets</li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.deliveryextra.com.br/" target="_blank">Extra</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.paodeacucar.com.br/" target="_blank">Pao acucar</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://www.zonasul.com.br/" target="_blank">Zona Sul</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="http://evino.com.br/" target="_blank">EVino</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px; color: #ffffff; background-color: #feb400;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://www2.correios.com.br/sistemas/rastreamento/default.cfm" target="_blank">Correios</a></li>
 					<li disabled="" class="mdl-menu__item mdl-js-ripple-effect">Travels</li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.skyscanner.com.br/" target="_blank">SkyScanner</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://quantocustaviajar.com/" target="_blank">Quanto?</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.booking.com/" target="_blank">Booking</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.decolar.com/" target="_blank">Decolar</a></li>
 				</ul>
 				<button id="demo-Tools" class="mdl-button mdl-js-button">Tools</button>
 				<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="demo-Tools">
@@ -126,7 +121,7 @@
 				</ul>
 				<button id="demo-Test" class="mdl-button mdl-js-button">Test</button>
 				<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="demo-Test">
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://cryptoreport.websecurity.symantec.com/checker/views/csrCheck.jsp" target="_blank">CSR Check</a></li>
+					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://ssltools.digicert.com/checker/views/csrCheck.jsp" target="_blank">CSR Check</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://www.ssllabs.com/ssltest/analyze.html" target="_blank">Analyze SSL</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://www.whatsmydns.net/" target="_blank">DNS</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://testmysite.thinkwithgoogle.com/" target="_blank">Site speed</a></li>
@@ -137,15 +132,13 @@
 				
 				<button id="demo-IaaS" class="mdl-button mdl-js-button">IaaS</button>
 				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-IaaS">
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://aws.amazon.com/" target="_blank">Amazon</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://portal.azure.com/" target="_blank">Azure</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://console.ng.bluemix.net/" target="_blank">Bluemix</a></li>
-
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.cloudatcost.com/" target="_blank">Cloud At Cost</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.hostblast.net/" target="_blank">Hostblast</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.hostinger.com.br/" target="_blank">Hostinger</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://cloud.digitalocean.com/" target="_blank">Digital Ocean</a></li>
-					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="http://www.softlayer.com/" target="_blank">SoftLayer</a></li>
+					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://www.chicagovps.net/services/cloud-vps" target="_blank">Chicago VPS</a></li>
+					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://mlab.com/" target="_blank">Mongo Lab</a></li>
 					<li class="mdl-menu__item mdl-js-ripple-effect"><a style="width: 120px;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://mega.nz/#F!lo9W2AAQ!92UdPRwm_gUUOnC9aqO6Nw" target="_blank">Windows</a></li>
 				</ul>
 				<br><br><br>
@@ -179,6 +172,7 @@
 				  </tbody>
 				</table>
 				<br>
+				http://livre.site/<input type="text" id="livre"><input type="button" onclick="livreSite()" value="Go"><br><br>
 				<input type="button" onclick="switchServers()" value="Servers"><br><br>
 				<table id="servers" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" width="350px">
 				  <thead>
@@ -211,7 +205,7 @@
 				  </tbody>
 				</table>		
 			</center>
-			<center><br>*Updated 18/01/2019 as 22:00h - © Carlos Madera 1999-2019
+			<center><br>*Updated 19/05/2019 as 14:00h - © Carlos Madera 1999-2019
 				<div class="host">bigbank.com.br</div>
 				<script>document.querySelector('.host').innerHTML = document.location.hostname;</script>
 			</center>
