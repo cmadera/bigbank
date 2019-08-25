@@ -11,15 +11,21 @@ yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip
 systemctl start httpd.service
 ```
 
-## Bigbank ##
+## Bigbank Firebase ##
 ```
-cd /var/www/html
-git clone https://github.com/cmadera/bigbank.git
-git clone https://github.com/cmadera/monitor.git
-cp monitor/monitor.php .
-mv bigbank/home/ .
-mv bigbank/index.php .
-rm -rf bigbank/
+  git config --global user.email "user@mail.com"
+  git config --global user.name "user"
+  git clone https://github.com/cmadera/bigbank.git
+  cd bigbank/
+  firebase init
+  code .
+
+  git add .
+  git commit -m "new version"
+  git push
+
+
+  firebase deploy
 ```
 
 
