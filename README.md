@@ -35,7 +35,7 @@ vi .bashrc
 alias get='sudo apt-get install -y'
 alias df='df -h'
 alias ls='ls -la'
-alias upgrade='sudo apt-get update -y || sudo apt-get upgrade -y'
+alias upgrade='sudo apt-get update -y && sudo apt-get upgrade -y'
 alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
 ```
