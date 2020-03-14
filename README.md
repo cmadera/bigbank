@@ -52,3 +52,14 @@ alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
 ```
 get curl
+
+## Change Hostname ##
+/etc/hosts
+/etc/hostname
+
+## No root login ##
+sudo vi /etc/ssh/sshd_config
+```
+PermitRootLogin no
+```
+sudo /etc/init.d/ssh restart
