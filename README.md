@@ -54,8 +54,10 @@ alias myip='curl ifconfig.me'
 get curl
 
 ## Change Hostname ##
+``` 
 /etc/hosts
 /etc/hostname
+```
 
 ## No root login ##
 sudo vi /etc/ssh/sshd_config
