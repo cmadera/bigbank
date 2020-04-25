@@ -35,11 +35,11 @@ vi .bashrc
 alias get='sudo apt-get install -y'
 alias df='df -h'
 alias ls='ls -la'
-alias upgrade='sudo apt-get update -y && sudo apt-get upgrade -y'
+alias upgrade='sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get autoremove -y'
 alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
 ```
-get curl
+get curl git net-tools build-essential
 
 ## CentOS Alias ##
 vi .bashrc
