@@ -30,9 +30,6 @@
   firebase deploy
 ```
 
-## SUDO NO PASS
-user ALL=(ALL) NOPASSWD: ALL
-
 ## Ubuntu Alias ##
 vi .bashrc
 ```
