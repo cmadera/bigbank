@@ -39,6 +39,8 @@ alias ls='ls -la'
 alias upgrade='sudo apt-get update -y && sudo apt-get full-upgrade -y && sudo apt-get autoremove -y'
 alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
+alias version='lsb_release -a'
+
 ```
 get curl git net-tools build-essential tmux cockpit
 
@@ -51,6 +53,8 @@ alias ls='ls -la'
 alias upgrade='sudo yum update -y'
 alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
+alias version='hostnamectl'
+
 ```
 get curl
 
