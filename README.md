@@ -40,7 +40,7 @@ alias upgrade='sudo apt-get update -y && sudo apt-get full-upgrade -y && sudo ap
 alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
 ```
-get curl git net-tools build-essential
+get curl git net-tools build-essential tmux cockpit
 
 ## CentOS Alias ##
 vi .bashrc
