@@ -1,22 +1,24 @@
 # bigbank
 
-## PHP 7.2 on CentOS 7 ##
+## NodeJs Install ##
 ```
-yum update -y
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-yum install -y yum-utils git
-yum-config-manager --enable remi-php72
-yum install -y php php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo
-systemctl start httpd.service
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  nvm install node
 ```
-
-## Bigbank Firebase ##
+## Firebase Install ##
+```
+  npm install -g firebase-tools
+  npm install -g firebase-functions
+  npm install -g firebase-admin  
+```
+## Bigbank on Firebase ##
 ```
   git config --global user.email "user@mail.com"
   git config --global user.name "user"
   git clone https://github.com/cmadera/bigbank.git
   cd bigbank/
+
+  firebase login
   firebase init
   code .
 
@@ -28,18 +30,19 @@ systemctl start httpd.service
   firebase deploy
 ```
 
-
 ## Ubuntu Alias ##
 vi .bashrc
 ```
 alias get='sudo apt-get install -y'
 alias df='df -h'
 alias ls='ls -la'
-alias upgrade='sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get autoremove -y'
+alias upgrade='sudo apt-get update -y && sudo apt-get full-upgrade -y && sudo apt-get autoremove -y'
 alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
+alias version='lsb_release -a'
+
 ```
-get curl git net-tools build-essential
+get curl git net-tools build-essential tmux cockpit
 
 ## CentOS Alias ##
 vi .bashrc
@@ -50,18 +53,8 @@ alias ls='ls -la'
 alias upgrade='sudo yum update -y'
 alias cdwww='cd /var/www/html'
 alias myip='curl ifconfig.me'
+alias version='hostnamectl'
+
 ```
 get curl
 
-## Change Hostname ##
-``` 
-/etc/hosts
-/etc/hostname
-```
-
-## No root login ##
-sudo vi /etc/ssh/sshd_config
-```
-PermitRootLogin no
-```
-sudo /etc/init.d/ssh restart
