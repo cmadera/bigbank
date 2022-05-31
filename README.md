@@ -2,8 +2,8 @@
 
 ## NodeJs Install ##
 ```
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-  nvm install node
+  curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+  sudo apt install -y nodejs
 ```
 ## Firebase Install ##
 ```
