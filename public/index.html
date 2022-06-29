@@ -26,29 +26,24 @@
     <meta name="apple-mobile-web-app-title" content="Bigbank">
 
     <link rel="stylesheet" href="uikit/css/uikit.min.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QQKMVMXBP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-	<script type="text/javascript">
+        gtag('config', 'G-6QQKMVMXBP');
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-33102679-1']);
-	  _gaq.push(['_setDomainName', 'bigbank.com.br']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	function switchServers() {
-	  var x = document.getElementById("servers");
-	  if (x.style.display === "none") {
-	    x.style.display = "block";
-	  } else {
-	    x.style.display = "none";
-	  }
-	}
-	</script>
+        function switchServers() {
+            var x = document.getElementById("servers");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
     
 </head>
 <body>
@@ -196,7 +191,7 @@
                 <hr class="uk-divider-icon">
                 <div uk-grid class="uk-align-center uk-grid-small">
                     <div class="uk-text-small uk-width-1-1 uk-align-center">
-                        Updated: 30/05/2022 as 23:00h<br>
+                        Updated: 29/06/2022 as 15:00h<br>
                         © Carlos Madera 1999-<a href="2048" target="_blank">2048</a><br>
                         <i id="host"></i>
                     </div>
@@ -251,10 +246,6 @@
 
 	<script type="text/javascript">
 		  var modal = document.getElementById("myModal");
-		  var btn = document.getElementById("myBtn");
-		  var span = document.getElementsByClassName("close")[0];
-		  btn.onclick = function()  { modal.style.display = "block";}
-		  span.onclick = function() { modal.style.display = "none"; }
 		  window.onclick = function(event) {
 			  if (event.target == modal) { modal.style.display = "none";}
 		  }
