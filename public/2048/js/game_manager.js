@@ -11,6 +11,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
     this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
     this.inputManager.on("load", this.load.bind(this));
     this.inputManager.on("save", this.save.bind(this));
+    this.inputManager.on("tile", this.tile.bind(this));
   
     this.setup();
   }
@@ -37,6 +38,22 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
     this.actuator.continueGame(); // Clear the game won/lost message
   };
   
+  // Tile the game
+  GameManager.prototype.tile = function () {
+    console.log(this.serialize());
+    var tile = new Tile(this.grid.randomAvailableCell(), value);
+    tile.x=0;
+    tile.y=0;
+    
+  
+    this.grid.insertTile(tile);
+
+    this.keepPlaying = true;
+    this.storageManager.getSaveState();
+    this.actuator.continueGame(); // Clear the game won/lost message
+    this.setup();
+  };
+
   // Keep playing after winning (allows going over 2048)
   GameManager.prototype.keepPlaying = function () {
     this.keepPlaying = true;

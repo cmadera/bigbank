@@ -73,6 +73,7 @@ function KeyboardInputManager() {
     this.bindButtonPress(".restart-button", this.restart);
     this.bindButtonPress(".save-button", this.save);
     this.bindButtonPress(".load-button", this.load);
+    this.bindButtonPress(".tile-button", this.tile);
     this.bindButtonPress(".keep-playing-button", this.keepPlaying);
   
     // Respond to swipe events
@@ -142,6 +143,11 @@ function KeyboardInputManager() {
   KeyboardInputManager.prototype.load = function (event) {
     event.preventDefault();
     this.emit("load");
+  };
+  
+  KeyboardInputManager.prototype.tile = function (event) {
+    event.preventDefault();
+    this.emit("tile");
   };
   
   KeyboardInputManager.prototype.keepPlaying = function (event) {
