@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Pinout Reference</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        .pin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+        
+        .pin-card {
+            transition: transform 0.2s;
+            width: 680px; /* Fixed card width */
+            margin: 0 auto; /* Center cards in grid cells */
+        }
+        .pin-image {
+            width: 660px; /* Fixed image width */
+            height: 420px; /* Fixed image height */
+            object-fit: cover; /* Maintain aspect ratio */
+            margin: 0 auto;
+            display: block;
+            padding: 10px;
+        }
+        .pin-card:hover {
+            transform: translateY(-5px);
+        }
+        .gpio-pin { background-color: #cfe2ff; }
+        .power-pin { background-color: #f8d7da; }
+        .ground-pin { background-color: #d3d3d3; }
+        .special-pin { background-color: #d1e7dd; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pinout Reference</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#raspberrypi0">Raspberry Pi Zero</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#raspberrypi5">Raspberry Pi 5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#d1mini">D1 Mini</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="list-group">
+                    <a href="#raspberrypi0" class="list-group-item list-group-item-action">Raspberry Pi Zero</a>
+                    <a href="#raspberrypi5" class="list-group-item list-group-item-action">Raspberry Pi 5</a>
+                    <a href="#d1mini" class="list-group-item list-group-item-action">D1 Mini</a>
+                    <a href="#usbc" class="list-group-item list-group-item-action">USB-C</a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Raspberry Pi 4 Section -->
+                <section id="raspberrypi0" class="component-section">
+                    <h2 class="mb-4">Raspberry Pi Zero</h2>
+                    <div class="pin-grid">
+                        <!-- Example Pin -->
+                        <div class="card pin-card">
+                            <img src="pinout/RPZW.jpg" class="pin-image" alt="Raspberry Pi Zero">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">GPIO2</h5>
+                                <small class="text-muted">Pin 3</small>
+                            </div>
+                        </div>
+                        <!-- Add more pins here -->
+                    </div>
+                </section>
+                <section id="raspberrypi5" class="component-section">
+                    <h2 class="mb-4">Raspberry Pi 5</h2>
+                    <div class="pin-grid">
+                        <!-- Example Pin -->
+                        <div class="card pin-card">
+                            <img src="pinout/Raspberry-Pi-5-Pinout--1210x642.jpg" class="pin-image" alt="Raspberry Pi 5">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">GPIO2</h5>
+                                <small class="text-muted">Pin 3</small>
+                            </div>
+                        </div>
+                        <!-- Add more pins here -->
+                    </div>
+                </section>
+                <!-- ESP32 Section -->
+                <section id="d1mini" class="component-section" style="display: none;">
+                    <h2 class="mb-4">D1 Mini Pinout</h2>
+                    <div class="pin-grid">
+                        <div class="card pin-card">
+                            <img src="pinout/D1-Mini-Pinout.png" class="pin-image" alt="D1 Mini">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">GPIO2</h5>
+                                <small class="text-muted">Pin 3</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- USB-C Section -->
+                <section id="usbc" class="component-section" style="display: none;">
+                    <h2 class="mb-4">USB-C Pinout</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Receptacle</h5>
+                                    <!-- USB-C pin diagram -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple tab switching
+        document.querySelectorAll('.list-group-item').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(item.getAttribute('href'));
+                document.querySelectorAll('.component-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                target.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
