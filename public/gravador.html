@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravador de Voz para Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        #output {
+            width: 100%;
+            min-height: 200px;
+            margin: 20px 0;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: white;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        #startButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #startButton.recording {
+            background-color: #f44336;
+        }
+        #startButton:hover {
+            background-color: #45a049;
+        }
+        #startButton.recording:hover {
+            background-color: #d32f2f;
+        }
+        #clearButton {
+            background-color: #ff9800;
+            color: white;
+        }
+        #clearButton:hover {
+            background-color: #f57c00;
+        }
+        #copyButton {
+            background-color: #2196F3;
+            color: white;
+        }
+        #copyButton:hover {
+            background-color: #0b7dda;
+        }
+        .status {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .copy-notification.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gravador de Voz para Texto</h2>
+        
+        <div class="button-container">
+            <button id="startButton">Iniciar Gravação</button>
+            <button id="clearButton">Limpar</button>
+            <button id="copyButton">Copiar</button>
+        </div>
+        
+        <div contenteditable="true" id="output" placeholder="O texto reconhecido aparecerá aqui..."></div>
+        
+        <div class="status" id="status">Status: Pronto para gravar</div>
+        
+        <div class="copy-notification" id="copyNotification">Texto copiado!</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const startButton = document.getElementById('startButton');
+            const clearButton = document.getElementById('clearButton');
+            const copyButton = document.getElementById('copyButton');
+            const output = document.getElementById('output');
+            const status = document.getElementById('status');
+            const copyNotification = document.getElementById('copyNotification');
+            
+            let recognition;
+            let isRecording = false;
+            
+            // Verifica se o navegador suporta a API de reconhecimento de fala
+            if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'pt-BR';
+                
+                recognition.onstart = () => {
+                    status.textContent = 'Status: Gravando...';
+                    startButton.textContent = 'Parar Gravação';
+                    startButton.classList.add('recording');
+                    isRecording = true;
+                };
+                
+                recognition.onend = () => {
+                    if (isRecording) {
+                        recognition.start();
+                    } else {
+                        status.textContent = 'Status: Gravação finalizada';
+                        startButton.textContent = 'Iniciar Gravação';
+                        startButton.classList.remove('recording');
+                    }
+                };
+                
+                recognition.onerror = (event) => {
+                    console.error('Erro de reconhecimento:', event.error);
+                    status.textContent = 'Status: Erro - ' + event.error;
+                    isRecording = false;
+                    startButton.textContent = 'Iniciar Gravação';
+                    startButton.classList.remove('recording');
+                };
+                
+                recognition.onresult = (event) => {
+                    let interimTranscript = '';
+                    let finalTranscript = output.textContent || '';
+                    
+                    for (let i = event.resultIndex; i < event.results.length; i++) {
+                        const transcript = event.results[i][0].transcript;
+                        
+                        if (event.results[i].isFinal) {
+                            finalTranscript += transcript + ' ';
+                        } else {
+                            interimTranscript += transcript;
+                        }
+                    }
+                    
+                    output.textContent = finalTranscript + interimTranscript;
+                };
+                
+                // Botão de iniciar/parar gravação
+                startButton.addEventListener('click', () => {
+                    if (isRecording) {
+                        recognition.stop();
+                        isRecording = false;
+                        startButton.textContent = 'Iniciar Gravação';
+                        startButton.classList.remove('recording');
+                        status.textContent = 'Status: Gravação interrompida';
+                    } else {
+                        recognition.start();
+                    }
+                });
+                
+            } else {
+                status.textContent = 'Status: Seu navegador não suporta reconhecimento de voz';
+                startButton.disabled = true;
+            }
+            
+            // Botão de limpar texto
+            clearButton.addEventListener('click', () => {
+                output.textContent = '';
+                status.textContent = 'Status: Texto limpo';
+            });
+            
+            // Botão de copiar texto
+            copyButton.addEventListener('click', () => {
+                const text = output.textContent;
+                if (text) {
+                    navigator.clipboard.writeText(text)
+                        .then(() => {
+                            copyNotification.classList.add('show');
+                            setTimeout(() => {
+                                copyNotification.classList.remove('show');
+                            }, 2000);
+                            status.textContent = 'Status: Texto copiado para a área de transferência';
+                        })
+                        .catch(err => {
+                            console.error('Erro ao copiar texto: ', err);
+                            status.textContent = 'Status: Erro ao copiar texto';
+                        });
+                } else {
+                    status.textContent = 'Status: Não há texto para copiar';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

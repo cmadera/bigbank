@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com iframe do Gravador de Voz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .iframe-container {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        iframe {
+            width: 100%;
+            border: none;
+            min-height: 500px;
+        }
+        .description {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            iframe {
+                min-height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            iframe {
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gravador de Voz para Texto</h1>
+        
+        <div class="description">
+            <p>Esta página demonstra um gravador de voz integrado que converte fala em texto. A funcionalidade está incorporada abaixo em um iframe responsivo.</p>
+            <p>Instruções de uso:</p>
+            <ul>
+                <li>Clique no botão "Iniciar Gravação" para começar a capturar sua voz</li>
+                <li>Fale claramente no microfone</li>
+                <li>O texto será exibido na área abaixo dos botões</li>
+                <li>Use "Limpar" para apagar o texto atual</li>
+                <li>Use "Copiar" para salvar o texto no clipboard</li>
+            </ul>
+        </div>
+        
+        <div class="iframe-container">
+            <!-- Substitua o caminho abaixo pelo caminho real do seu arquivo gravador.html -->
+            <iframe src="gravador.html" title="Gravador de Voz para Texto"></iframe>
+        </div>
+    </div>
+</body>
+</html>
