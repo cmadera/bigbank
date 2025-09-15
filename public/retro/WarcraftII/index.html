@@ -1,0 +1,35 @@
+<!doctype html>
+  <html lang="en-us">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Warcraft II</title>
+        <p>Play in the legendary game <strong>Warcraft II</strong> in browser.</p>
+
+<!-- 2 -->
+
+ </head>
+ <body>
+    <div id="dosbox"></div>
+     <br/>
+        <div id="Duke_Nukem_3d" class="dosbox-default"></div>
+<p><br /><a id="fullscreen_Duke_Nukem_3d" href="javascript: void 0;" class="icon-resize-full">Fullscreen</a></p>
+        <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+        <script type="text/javascript">
+
+        var dosbox_Duke_Nukem_3d = new Dosbox({
+            id: "Duke_Nukem_3d",
+            onload: function (dosbox) {
+            dosbox_Duke_Nukem_3d.run("WarcraftII.zip", "./War2/war2.EXE");
+            },
+            onrun: function (dosbox, app) {
+            console.log("App '" + app + "' is runned");
+            }
+        });
+
+        document.getElementById("fullscreen_Duke_Nukem_3d").addEventListener("click", function() {
+            dosbox_Duke_Nukem_3d.requestFullScreen();
+        });
+        </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+  <html lang="en-us">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Duke Nuken 3D</title>
+        <p>Play in the legendary game <strong>Duke Nukem 3D</strong> in browser.</p>
+
+<!-- 2 -->
+
+<style>
+    #Duke_Nukem_3d > .dosbox-container { width: 640px; height: 400px; }
+    #Duke_Nukem_3d > .dosbox-container > .dosbox-overlay { background: url("https://js-dos.com/cdn/Duke Nukem 3d.png"); }
+    #Duke_Nukem_3d > .dosbox-container > .dosbox-overlay > .dosbox-start {
+        border-radius: 17px 17px 17px 17px;
+        -moz-border-radius: 17px 17px 17px 17px;
+        -webkit-border-radius: 17px 17px 17px 17px;
+        border: 0px solid #000000;
+        background-color: rgba(90, 90, 90, 0.57);
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+        width: 10em;
+        margin: 0 auto;
+    }
+</style>
+ </head>
+ <body>
+    <div id="dosbox"></div>
+     <br/>
+        <div id="Duke_Nukem_3d" class="dosbox-default"></div>
+<p><br /><a id="fullscreen_Duke_Nukem_3d" href="javascript: void 0;" class="icon-resize-full">Fullscreen</a></p>
+        <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+        <script type="text/javascript">
+
+        var dosbox_Duke_Nukem_3d = new Dosbox({
+            id: "Duke_Nukem_3d",
+            onload: function (dosbox) {
+            dosbox_Duke_Nukem_3d.run("DukeNukem3D.zip", "./DUKE3D/DUKE3D.EXE");
+            },
+            onrun: function (dosbox, app) {
+            console.log("App '" + app + "' is runned");
+            }
+        });
+
+        document.getElementById("fullscreen_Duke_Nukem_3d").addEventListener("click", function() {
+            dosbox_Duke_Nukem_3d.requestFullScreen();
+        });
+        </script>
+  </body>
+</html>
