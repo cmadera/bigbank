@@ -48,7 +48,7 @@
 </head>
 <body>
     <div class="uk-position-cover uk-background-secondary uk-light">
-        <div class="uk-inline uk-width-1-1@s">
+        <div class="uk-inline uk-width-1-1">
             <div class="uk-position-top-center uk-position-fixed uk-position-z-index uk-align-center uk-background-secondary uk-light">
                 <button class="uk-button uk-button-default" style="padding: 0 10px;" type="button">News</button>
                 <div class="uk-width-large uk-background-secondary uk-light" uk-dropdown>
@@ -203,7 +203,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="uk-position-center uk-position-fixed uk-container-center uk-background-secondary uk-light">
+            <div class="uk-position-center uk-position-fixed uk-width-1-1 uk-padding-large uk-background-secondary uk-light">
                 <div uk-grid class="uk-grid-divider uk-grid-small">
                     <div class="uk-width-1-4">
                         <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://manus.im/" target="_blank" title="Manus" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
@@ -313,22 +313,34 @@
                     </div>
                 </div>
                 <div uk-grid class="uk-grid-divider uk-grid-small">
-                    <div class="uk-width-1-2">
+                    <div class="uk-width-1-4">
                         <a class="uk-button uk-button-primary uk-align-center uk-border-circle" href="https://play.google.com/books" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
                             <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/gbooks.png">
                             <span style="overflow: hidden; text-overflow: ellipsis;">Books</span>
                         </a>
                     </div>
-                    <div class="uk-width-1-2">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-circle" href="https://annas-archive.li/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
+                    <div class="uk-width-1-4">
+                        <a class="uk-button uk-button-primary uk-align-center uk-border-circle" href="https://annas-archive.gl/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
                             <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/annas-icon.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Annas Archive</span>
+                            <span style="overflow: hidden; text-overflow: ellipsis;">Annas</span>
+                        </a>
+                    </div>
+                    <div class="uk-width-1-4">
+                        <a class="uk-button uk-button-primary uk-align-center uk-border-rounded" href="https://www.duolingo.com/learn" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
+                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/duolingo.jpeg">
+                            <span style="overflow: hidden; text-overflow: ellipsis;">Duolingo</span>
+                        </a>
+                    </div>
+                    <div class="uk-width-1-4">
+                        <a class="uk-button uk-button-primary uk-align-center uk-border-rounded" href="https://www.mindmeister.com/app/map/3761251729" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
+                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/mindmaster.png">
+                            <span style="overflow: hidden; text-overflow: ellipsis;">Mindmaster</span>
                         </a>
                     </div>
                 </div>
                 <div uk-grid class="uk-grid-divider uk-grid-small">
                     <div class="uk-width-1-2">
-                        Updated: 11/01/2026 at 15:00h<!-- - <a href="pinout.html" target="_blank">PinOut</a--><br>
+                        Updated: 21/03/2026 at 13:00h<!-- - <a href="pinout.html" target="_blank">PinOut</a--><br>
                         <i id="host"></i>
                     </div>
                     <div class="uk-width-1-2" style="text-align: right">
@@ -336,8 +348,6 @@
                         1999-<a href="2048" target="_blank">2048</a> / <a href="retro/index.html" target="_blank">Retro</a>
                     </div>
                 </div>
-                <script>document.getElementById('host').innerHTML = "Server: "+document.location.hostname;</script>
-
             </div>
             <div class="uk-position-bottom-center uk-position-fixed uk-position-z-index">
                 <table>
@@ -360,6 +370,7 @@
             </div>
         </div>
     </div>
+    <script>document.getElementById('host').innerHTML = "Server: "+document.location.hostname;</script>
 
     <div id="modal-example" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-background-secondary uk-light">
