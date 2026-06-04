@@ -1,404 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site de favoritos para PC e Mobile.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
     <meta name="author" content="Carlos Madera">
     <link rel="icon" href="favicon.ico">
     <link rel="icon" sizes="128x128" href="128x128bigbank.png">
     <link rel="apple-touch-icon" sizes="128x128" href="128x128bigbank.png">
     <title>Bigbank</title>
     
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="128x128bigbank.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'secondary': '#222',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu { display: block; }
+        /* Hover Bridge: This invisible area fills the gap between the button and the 
+           dropdown menu, ensuring the menu stays open as the mouse moves into it. */
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -12px; /* Bridges the 8px (mt-2) gap */
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
+    </style>
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Bigbank">
-
-    <link rel="stylesheet" href="uikit/css/uikit.min.css" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QQKMVMXBP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-6QQKMVMXBP');
 
-        function switchServers() {
-            var x = document.getElementById("servers");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
+        function toggleModal() {
+            const modal = document.getElementById('server-modal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+        }
+    </script>
+</head>
+<body class="bg-slate-900 text-slate-300 min-h-screen font-sans selection:bg-blue-500 selection:text-white">
+
+    <div class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+        <div class="flex justify-start md:justify-center p-3 gap-1 md:gap-2">
+            <!-- Dropdown example: News -->
+            <div class="relative dropdown">
+                <button class="px-2 md:px-4 py-1.5 border border-slate-700 rounded hover:border-slate-500 transition-colors text-sm uppercase tracking-wider">News</button>
+                <div class="dropdown-menu absolute hidden top-full left-0 mt-2 w-[400px] bg-slate-800 border border-slate-700 rounded-lg shadow-2xl p-6">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-3">
+                            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">BR</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="http://www.brasil247.com/" target="_blank" class="hover:text-blue-400">Brasil 24/7</a></li>
+                                <li><a href="https://www.jornaldacidadeonline.com.br/" target="_blank" class="hover:text-blue-400">Cidade</a></li>
+                                <li><a href="https://www.cnnbrasil.com.br/" target="_blank" class="hover:text-blue-400">CNN Brasil</a></li>
+                                <li><a href="http://www.estadao.com.br/" target="_blank" class="hover:text-blue-400">Estadao</a></li>
+                                <li><a href="https://elpais.com/america/" target="_blank" class="hover:text-blue-400">El Pais</a></li>
+                                <li><a href="http://www.folha.com.br/" target="_blank" class="hover:text-blue-400">Folha</a></li>
+                                <li><a href="http://www.g1.com.br/" target="_blank" class="hover:text-blue-400">G1</a></li>
+                                <!--li><a href="http://www.jb.com.br/" target="_blank">JB</a></li-->
+                                <li><a href="http://www.oglobo.com.br/" target="_blank" class="hover:text-blue-400">O Globo</a></li>
+                                <li><a href="https://noticiabrasil.net.br/" target="_blank" class="hover:text-blue-400">Sputnik Brasil</a></li>
+                            </ul>
+                            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">EN</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="http://www.bbc.com/" target="_blank" class="hover:text-blue-400">BBC [uk]</a></li>
+                                <li><a href="http://www.nytimes.com/" target="_blank" class="hover:text-blue-400">NY Times [en]</a></li>
+                            </ul>
+                        </div>
+                        <div class="space-y-3">
+                            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">ES</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="http://www.clarin.com/" target="_blank" class="hover:text-blue-400">Clarin [ar]</a></li>
+                                <li><a href="http://www.lacapital.com.ar/" target="_blank" class="hover:text-blue-400">La Capital [ar]</a></li>
+                                <li><a href="http://www.lanacion.com.ar/" target="_blank" class="hover:text-blue-400">La Nacion [ar]</a></li>
+                                <li><a href="http://www.emol.com/" target="_blank" class="hover:text-blue-400">El Mercurio [ch]</a></li>
+                            </ul>
+                            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">IT</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="http://www.corriere.it/" target="_blank" class="hover:text-blue-400">Corriere [it]</a></li>
+                                <li><a href="http://www.repubblica.it/" target="_blank" class="hover:text-blue-400">La Repubblica [it]</a></li>
+                            </ul>
+                            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">Other</h3>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="http://www.lemonde.fr/" target="_blank" class="hover:text-blue-400">Le Monde [fr]</a></li>
+                                <li><a href="http://www.spiegel.de/international/" target="_blank" class="hover:text-blue-400">Spiegel [ge]</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative dropdown">
+                <button class="px-2 md:px-4 py-1.5 border border-slate-700 rounded hover:border-slate-500 transition-colors text-sm uppercase tracking-wider">Shop</button>
+                <div class="dropdown-menu absolute hidden top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-2xl p-4">
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://www.aliexpress.com/p/order/index.html" target="_blank" class="hover:text-blue-400">AliExpress</a></li>
+                        <li><a href="https://www.amazon.com/" target="_blank" class="hover:text-blue-400">Amazon</a></li>
+                        <li><a href="http://www.kabum.com.br/" target="_blank" class="hover:text-blue-400">Kabum</a></li>
+                        <li><a href="http://www.mercadolivre.com.br/" target="_blank" class="hover:text-blue-400">Mercado livre</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">Markets</li>
+                        <li><a href="http://www.paodeacucar.com.br/" target="_blank" class="hover:text-blue-400">Pao acucar</a></li>
+                        <li><a href="http://www.zonasul.com.br/" target="_blank" class="hover:text-blue-400">Zona Sul</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">Travels</li>
+                        <li><a href="http://www.skyscanner.com.br/" target="_blank" class="hover:text-blue-400">SkyScanner</a></li>
+                        <li><a href="http://www.booking.com/" target="_blank" class="hover:text-blue-400">Booking</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative dropdown">
+                <button class="px-2 md:px-4 py-1.5 border border-slate-700 rounded hover:border-slate-500 transition-colors text-sm uppercase tracking-wider">Tool</button>
+                <div class="dropdown-menu absolute hidden top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-2xl p-4">
+                    <ul class="space-y-2 text-sm">
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">Benchmarks</li>
+                        <li><a href="http://www.cpubenchmark.net/cpu_list.php" target="_blank" class="hover:text-blue-400">CPU</a></li>
+                        <li><a href="http://www.videocardbenchmark.net/gpu_list.php" target="_blank" class="hover:text-blue-400">GPU</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">Speed</li>
+                        <li><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" class="hover:text-blue-400">Site speed</a></li>
+                        <li><a href="https://testmysite.thinkwithgoogle.com/" target="_blank" class="hover:text-blue-400">Mobile speed</a></li>
+                        <li><a href="https://observatory.mozilla.org/" target="_blank" class="hover:text-blue-400">Scan Site</a></li>
+                        <li><a href="https://web.basemark.com/" target="_blank" class="hover:text-blue-400">CPU-Test</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">Tools</li>
+                        <li><a href="https://dillinger.io/" target="_blank" class="hover:text-blue-400">Markdown</a></li>
+                        <li><a href="https://app.diagrams.net/" target="_blank" class="hover:text-blue-400">Diagram</a></li>
+                        <li><a href="https://it-tools.tech/" target="_blank" class="hover:text-blue-400">IT Tools</a></li>
+                        <li><a href="https://www.onlinelogomaker.com/logomaker/?lang=pt#" target="_blank" class="hover:text-blue-400">Logomaker</a></li>
+                        <li><a href="https://analytics.google.com/analytics/web/?et#/p321231900/reports/intelligenthome" target="_blank" class="hover:text-blue-400">Google Analytics</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative dropdown">
+                <button class="px-2 md:px-4 py-1.5 border border-slate-700 rounded hover:border-slate-500 transition-colors text-sm uppercase tracking-wider">3D</button>
+                <div class="dropdown-menu absolute hidden top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-2xl p-4">
+                    <ul class="space-y-2 text-sm">
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">Tools</li>
+                        <li><a href="https://www.tinkercad.com/dashboard" target="_blank" class="hover:text-blue-400">Tinkercad</a></li>
+                        <li><a href="https://planner5d.com/spaces" target="_blank" class="hover:text-blue-400">Planner 5D</a></li>
+                        <li><a href="https://grid.space/kiri/" target="_blank" class="hover:text-blue-400">Slicer</a></li>
+                        <li><a href="https://octoprint.org/download/" target="_blank" class="hover:text-blue-400">Octoprint</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">Models</li>
+                        <li><a href="https://www.thingiverse.com/" target="_blank" class="hover:text-blue-400">Thing I Verse</a></li>
+                        <li><a href="https://www.printables.com/" target="_blank" class="hover:text-blue-400">Printables</a></li>
+                        <li><a href="https://tool.itslitho.com/CreateModel" target="_blank" class="hover:text-blue-400">Lithophane</a></li>
+                        <li><a href="https://topoexport.com/" target="_blank" class="hover:text-blue-400">Topo Export</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative dropdown">
+                <button class="px-2 md:px-4 py-1.5 border border-slate-700 rounded hover:border-slate-500 transition-colors text-sm uppercase tracking-wider">AI</button>
+                <div class="dropdown-menu absolute hidden top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-2xl p-4">
+                    <ul class="space-y-2 text-sm">
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">Gen AI</li>
+                        <li><a href="https://chat.openai.com/" target="_blank" class="hover:text-blue-400">ChatGPT</a></li>
+                        <li><a href="https://claude.ai/" target="_blank" class="hover:text-blue-400">ClaudeAI</a></li>
+                        <li><a href="https://chat.deepseek.com/" target="_blank" class="hover:text-blue-400">DeepSeek</a></li>
+                        <li><a href="https://gemini.google.com/" target="_blank" class="hover:text-blue-400">Gemini</a></li>
+                        <li><a href="https://manus.im/" target="_blank" class="hover:text-blue-400">Manus</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">AI Tools</li>
+                        <li><a href="https://aistudio.google.com/" target="_blank" class="hover:text-blue-400">Google AI Studio</a></li>
+                        <li><a href="https://nanobananaimg.com/" target="_blank" class="hover:text-blue-400">Nano Banana</a></li>
+                        <li><a href="https://notebooklm.google.com/" target="_blank" class="hover:text-blue-400">NotebookLM</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative dropdown">
+                <button class="px-2 md:px-4 py-1.5 border border-slate-700 rounded hover:border-slate-500 transition-colors text-sm uppercase tracking-wider">Net</button>
+                <div class="dropdown-menu absolute hidden top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-2xl p-4">
+                    <ul class="space-y-2 text-sm">
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pb-1">Check</li>
+                        <li><a href="https://www.digicert.com/ssltools/view-csr/" target="_blank" class="hover:text-blue-400">CSR Check</a></li>
+                        <li><a href="https://www.ssllabs.com/ssltest/analyze.html" target="_blank" class="hover:text-blue-400">Analyze SSL</a></li>
+                        <li><a href="https://securityheaders.com" target="_blank" class="hover:text-blue-400">Header Sec.</a></li>
+                        <li><a href="https://testtls.com/" target="_blank" class="hover:text-blue-400">Test tls</a></li>
+                        <li><a href="https://check-host.net/" target="_blank" class="hover:text-blue-400">Check Host</a></li>
+                        <li><a href="https://www.shodan.io/" target="_blank" class="hover:text-blue-400">Shodan</a></li>
+                        <li><a href="https://www.virustotal.com/" target="_blank" class="hover:text-blue-400">Virus Total</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">DNS</li>
+                        <li><a href="https://www.whatsmydns.net/" target="_blank" class="hover:text-blue-400">My DNS</a></li>
+                        <li><a href="https://dnsdumpster.com/" target="_blank" class="hover:text-blue-400">DNS Dumpster</a></li>
+                        <li><a href="https://searchdns.netcraft.com/" target="_blank" class="hover:text-blue-400">Search DNS</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">Ports test</li>
+                        <li><a href="https://pentest-tools.com/network-vulnerability-scanning/tcp-port-scanner-online-nmap" target="_blank" class="hover:text-blue-400">Port Scan</a></li>
+                        <li><a href="http://mxtoolbox.com/" target="_blank" class="hover:text-blue-400">MX Lookup</a></li>
+                        <li><a href="http://network-tools.com/" target="_blank" class="hover:text-blue-400">Network</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="relative dropdown">
+                <button class="px-2 md:px-4 py-1.5 border border-slate-700 rounded hover:border-slate-500 transition-colors text-sm uppercase tracking-wider">IaaS</button>
+                <div class="dropdown-menu absolute hidden top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-2xl p-4">
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://portal.azure.com/" target="_blank" class="hover:text-blue-400">Azure</a></li>
+                        <li><a href="https://cloud.digitalocean.com/" target="_blank" class="hover:text-blue-400">Digital Ocean</a></li>
+                        <li><a href="https://www.hetzner.com/cloud/" target="_blank" class="hover:text-blue-400">Hetzner</a></li>
+                        <li><a href="http://www.infinityfree.com/" target="_blank" class="hover:text-blue-400">Infinity Free</a></li>
+                        <li><a href="https://www.macincloud.com/" target="_blank" class="hover:text-blue-400">MAC in Cloud</a></li>
+                        <li><a href="https://mongodb.com/" target="_blank" class="hover:text-blue-400">Mongo Lab</a></li>
+                        <li class="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-slate-700 pt-2 pb-1">Status</li>
+                        <li><a href="http://mon.seeu.me/" target="_blank" class="hover:text-blue-400">UpTime Kuma</a></li>
+                        <li><a href="https://uptimerobot.com/" target="_blank" class="hover:text-blue-400">UpTime Robot</a></li>
+                        <li><a href="https://updown.io/checks" target="_blank" class="hover:text-blue-400">UpDown</a></li>
+                        <li><a href="http://www.google.com/appsstatus#hl=pt-BR&amp;v=status" target="_blank" class="hover:text-blue-400">Google Status</a></li>
+                        <li><a href="https://status.firebase.google.com/" target="_blank" class="hover:text-blue-400">FireBase Status</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto max-w-4xl px-4 pt-24 pb-32">
+
+        <div class="relative flex py-5 items-center">
+            <div class="flex-grow border-t border-slate-800"></div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-2 md:gap-4 mb-12">
+            <a href="https://manus.im/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800 p-2 rounded-lg border border-slate-700 hover:border-blue-500 hover:bg-slate-700/50 transition-all group">
+                <img class="w-10 h-10 object-contain rounded" src="images/manus.png">
+                <span class="text-sm font-medium hidden md:inline">Manus</span>
+            </a>
+            <a href="https://chat.openai.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800 p-2 rounded-lg border border-slate-700 hover:border-blue-500 hover:bg-slate-700/50 transition-all group">
+                <img class="w-10 h-10 object-contain rounded" src="images/chatgpt.png">
+                <span class="text-sm font-medium hidden md:inline">ChatGPT</span>
+            </a>
+            <a href="https://notebooklm.google.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800 p-2 rounded-lg border border-slate-700 hover:border-blue-500 hover:bg-slate-700/50 transition-all group">
+                <img class="w-10 h-10 object-contain rounded" src="images/notebooklm-logo-custom.webp">
+                <span class="text-sm font-medium hidden md:inline">NotebookLM</span>
+            </a>
+            <a href="https://gemini.google.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800 p-2 rounded-lg border border-slate-700 hover:border-blue-500 hover:bg-slate-700/50 transition-all group">
+                <img class="w-10 h-10 object-contain rounded" src="images/gemini-icon.webp">
+                <span class="text-sm font-medium hidden md:inline">Gemini</span>
+            </a>
+        </div>
+
+        <div class="relative flex py-5 items-center">
+            <div class="flex-grow border-t border-slate-800"></div>
+            <span class="flex-shrink mx-4 text-slate-600"><svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+            <div class="flex-grow border-t border-slate-800"></div>
+        </div>
+
+        <!-- Main Link Grid -->
+        <div class="grid grid-cols-4 gap-2 md:gap-4 mt-4">
+            <a href="https://gmail.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/Gmail-Logo.jpeg">
+                <span class="text-sm hidden md:inline">Gmail</span>
+            </a>
+            <a href="https://proton.me/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/pm.png">
+                <span class="text-sm hidden md:inline">Proton</span>
+            </a>
+            <a href="https://www.notion.so/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/no.png">
+                <span class="text-sm hidden md:inline">Notion</span>
+            </a>
+            <a href="https://statusinvest.com.br/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/si.png">
+                <span class="text-sm hidden md:inline">StatusInvest</span>
+            </a>
+        </div>
+        <div class="grid grid-cols-4 gap-2 md:gap-4 mt-4">
+            <a href="https://drive.google.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/Google_Drive_icon_(2020).svg.png">
+                <span class="text-sm hidden md:inline">Drive</span>
+            </a>
+            <a href="https://keep.google.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/google_keep_icon.webp">
+                <span class="text-sm hidden md:inline">Keep</span>
+            </a>
+            <a href="https://x.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/x.png">
+                <span class="text-sm hidden md:inline">X(Twitter)</span>
+            </a>
+            <a href="https://www.netflix.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/n.png">
+                <span class="text-sm hidden md:inline">Netflix</span>
+            </a>
+        </div>
+        <div class="grid grid-cols-4 gap-2 md:gap-4 mt-4">
+            <a href="http://google.com/maps" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/Google_Maps_icon_(2020).svg.png">
+                <span class="text-sm hidden md:inline">Maps</span>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/youtube.png">
+                <span class="text-sm hidden md:inline">YouTube</span>
+            </a>
+            <a href="https://outlook.office.com/mail/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/Outlook.png">
+                <span class="text-sm hidden md:inline">Outlook</span>
+            </a>
+            <a href="https://web.whatsapp.com/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/whatsapp-icon.png">
+                <span class="text-sm hidden md:inline">WhatsApp</span>
+            </a>
+        </div>
+        <div class="grid grid-cols-4 gap-2 md:gap-4 mt-4">
+            <a href="https://play.google.com/books" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/gbooks.png">
+                <span class="text-sm hidden md:inline">Books</span>
+            </a>
+            <a href="https://annas-archive.gl/" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/annas-icon.png">
+                <span class="text-sm hidden md:inline">Annas</span>
+            </a>
+            <a href="https://www.duolingo.com/learn" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/duolingo-owl.png">
+                <span class="text-sm hidden md:inline">Duolingo</span>
+            </a>
+            <a href="https://www.mindmeister.com/app/map/3761251729" target="_blank" class="flex items-center justify-center md:justify-start gap-1 md:gap-3 bg-slate-800/40 p-2 rounded-lg border border-slate-800 hover:border-slate-600 transition-all">
+                <img class="w-10 h-10 object-contain" src="images/mindmaster.png">
+                <span class="text-sm hidden md:inline">Mindmaster</span>
+            </a>
+        </div>
+
+        <!-- Meta Footer -->
+        <div class="mt-16 flex flex-row justify-between items-center text-[10px] sm:text-xs text-slate-500 border-t border-slate-800 pt-6 whitespace-nowrap gap-4">
+            <div class="flex flex-row gap-2">
+                <span>Updated: 03/06/2026 at 18:00h<br>
+                <span id="host-tailwind" class="italic"></span>
+            </div>
+            <div class="text-right">
+                <a href="https://illread.web.app/" class="hover:text-blue-400">© Carlos Madera</a><br>
+                1999 - <a href="2048" class="hover:text-blue-400">2048</a> / <a href="retro/index.html" class="hover:text-blue-400">Retro</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Utility Bar -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-slate-900/90 backdrop-blur-md border-t border-slate-800 z-40">
+        <div class="flex justify-center gap-2">
+            <a href="https://ft.seeu.me/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded transition-colors uppercase">ft</a>
+            <a href="https://gitlab.com/cmadera/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded transition-colors uppercase">GitLab</a>
+            <a href="https://github.com/cmadera" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded transition-colors uppercase">GitHub</a>
+            <a href="https://ssh.cloud.google.com/cloudshell/editor" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded transition-colors uppercase">GCloud</a>
+            <button onclick="toggleModal()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded transition-colors uppercase">Servers</button>
+        </div>
+    </div>
+
+    <!-- Server Modal -->
+    <div id="server-modal" class="fixed inset-0 z-[100] hidden bg-slate-950/80 backdrop-blur-sm items-center justify-center p-4">
+        <div class="bg-slate-800 border border-slate-700 rounded-xl shadow-2xl max-w-2xl w-full p-6">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left">
+                    <thead>
+                        <tr class="text-slate-500 uppercase text-xs border-b border-slate-700">
+                            <th class="px-4 py-3">Domain</th>
+                            <th class="px-4 py-3">Register</th>
+                            <th class="px-4 py-3">Hosting</th>
+                            <th class="px-4 py-3">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700">
+                        <tr class="hover:bg-slate-700/30 transition-colors">
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://bigbank.com.br" target="_blank">Bigbank</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://cloud.digitalocean.com" target="_blank">D.Ocean</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://console.firebase.google.com/project/bigbank-dd7c8/overview" target="_blank">FireBase</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://mail.bigbank.com.br" target="_blank">Mail</a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/30 transition-colors">
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://seeu.me" target="_blank">SeeU</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://account.squarespace.com/domains/managed/seeu.me" target="_blank">SquareSpace</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://i.seeu.me" target="_blank">Hetzner</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://mon.seeu.me" target="_blank">Mon</a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/30 transition-colors">
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://nycrawler.com" target="_blank">NyCrawler</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://account.squarespace.com/domains/managed/nycrawler.com" target="_blank">SquareSpace</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://console.firebase.google.com/project/nycrawlerby/overview" target="_blank">FireBase</a></td>
+                            <td class="px-4 py-3">&nbsp;</td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/30 transition-colors">
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://utopiasargentinas.com" target="_blank">UtopiasArgentinas</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://account.squarespace.com/domains/managed/seeu.me" target="_blank">SquareSpace</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="https://www.blogger.com/blogger.g?blogID=5261229321325436198#allposts" target="_blank">Blogger</a></td>
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://mail.utopiasargentinas.com" target="_blank">Mail</a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/30 transition-colors">
+                            <td class="px-4 py-3 font-bold text-white"><a href="http://carlosmadera.blogspot.com" target="_blank">CURIOSAMENTE</a></td>
+                            <td class="px-4 py-3"><a href="http://solucaodeproblemas.blogspot.com" target="_blank">Soluções</a></td>
+                            <td class="px-4 py-3"><a href="http://pesquisando.tumblr.com/" target="_blank">Tumblr</a></td>
+                            <td class="px-4 py-3"><a href="https://setup.seeu.me/" target="_blank">Setup</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-6 flex justify-center">
+                <button onclick="toggleModal()" class="bg-slate-700 hover:bg-slate-600 text-white px-6 py-2 rounded-lg font-bold transition-colors">X</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('host-tailwind').innerHTML = "Server: " + window.location.hostname;
+        
+        // Close modal on click outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('server-modal');
+            if (event.target == modal) {
+                toggleModal();
             }
         }
     </script>
-    
-</head>
-<body>
-    <div class="uk-position-cover uk-background-secondary uk-light">
-        <div class="uk-inline uk-width-1-1">
-            <div class="uk-position-top-center uk-position-fixed uk-position-z-index uk-align-center uk-background-secondary uk-light">
-                <button class="uk-button uk-button-default" style="padding: 0 10px;" type="button">News</button>
-                <div class="uk-width-large uk-background-secondary uk-light" uk-dropdown>
-                    <div class="uk-navbar-dropdown-grid uk-child-width-1-2" uk-grid>
-                        <div>
-                            <ul class="uk-nav uk-dropdown-nav">
-                                <li  class="uk-nav-header">BR</li>
-                                <li><a href="http://www.brasil247.com/" target="_blank">Brasil 24/7</a></li>
-                                <li><a href="https://www.jornaldacidadeonline.com.br/" target="_blank">Cidade</a></li>
-                                <li><a href="https://www.cnnbrasil.com.br/" target="_blank">CNN Brasil</a></li>
-                                <li><a href="http://www.estadao.com.br/" target="_blank">Estadao</a></li>
-                                <li><a href="https://elpais.com/america/" target="_blank">El Pais</a></li>
-                                <li><a href="http://www.folha.com.br/" target="_blank">Folha</a></li>
-                                <li><a href="http://www.g1.com.br/" target="_blank">G1</a></li>
-                                <!--li><a href="http://www.jb.com.br/" target="_blank">JB</a></li-->
-                                <li><a href="http://www.oglobo.com.br/" target="_blank">O Globo</a></li>
-                                <li><a href="https://noticiabrasil.net.br/" target="_blank">Sputnik Brasil</a></li>
-                                <li  class="uk-nav-header">EN</li>
-                                <li><a href="http://www.bbc.com/" target="_blank">BBC [uk]</a></li>
-                                <li><a href="http://www.nytimes.com/" target="_blank">NY Times [en]</a></li>
-                                <!--li><a href="http://www.pragmatismopolitico.com.br/" target="_blank">Pragmatismo Politico</a></li-->
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="uk-nav uk-dropdown-nav">
-                                <li  class="uk-nav-header">ES</li>
-                                <li><a href="http://www.clarin.com/" target="_blank">Clarin [ar]</a></li>
-                                <li><a href="http://www.lacapital.com.ar/" target="_blank">La Capital [ar]</a></li>
-                                <li><a href="http://www.lanacion.com.ar/" target="_blank">La Nacion [ar]</a></li>
-                                <li><a href="http://www.emol.com/" target="_blank">El Mercurio [ch]</a></li>
-                                <li  class="uk-nav-header">IT</li>
-                                <li><a href="http://www.corriere.it/" target="_blank">Corriere [it]</a></li>
-                                <li><a href="http://www.repubblica.it/" target="_blank">La Repubblica [it]</a></li>
-                                <li  class="uk-nav-header">Other</li>
-                                <li><a href="http://www.lemonde.fr/" target="_blank">Le Monde [fr]</a></li>
-                                <li><a href="http://www.spiegel.de/international/" target="_blank">Spiegel [ge]</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <button class="uk-button uk-button-default"  style="padding: 0 10px;" type="button">Shop</button>
-                <div class="uk-background-secondary uk-light" uk-dropdown>
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li><a href="https://www.aliexpress.com/p/order/index.html" target="_blank">AliExpress</a></li>
-                        <li><a href="https://www.amazon.com/" target="_blank">Amazon</a></li>
-                        <li><a href="http://www.kabum.com.br/" target="_blank">Kabum</a></li>
-                        <li><a href="http://www.mercadolivre.com.br/" target="_blank">Mercado livre</a></li>
-                        <li class="uk-nav-header">Markets</li>
-                        <!--li><a href="http://www.deliveryextra.com.br/" target="_blank">Extra</a></li-->
-                        <li><a href="http://www.paodeacucar.com.br/" target="_blank">Pao acucar</a></li>
-                        <li><a href="http://www.zonasul.com.br/" target="_blank">Zona Sul</a></li>
-                        <li class="uk-nav-header">Travels</li>
-                        <li><a href="http://www.skyscanner.com.br/" target="_blank">SkyScanner</a></li>
-                        <li><a href="http://www.booking.com/" target="_blank">Booking</a></li>
-                    </ul>
-                </div>
-                <button class="uk-button uk-button-default"  style="padding: 0 10px;" type="button">Tool</button>
-                <div class="uk-background-secondary uk-light" uk-dropdown>
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li  class="uk-nav-header">Benchmarks</li>
-                        <li><a href="http://www.cpubenchmark.net/cpu_list.php" target="_blank">CPU</a></li>
-                        <li><a href="http://www.videocardbenchmark.net/gpu_list.php" target="_blank">GPU</a></li>
-                        <li class="uk-nav-header">Speed</li>
-                        <li><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">Site speed</a></li>
-                        <li><a href="https://testmysite.thinkwithgoogle.com/" target="_blank">Mobile speed</a></li>
-                        <li><a href="https://observatory.mozilla.org/" target="_blank">Scan Site</a></li>
-                        <li><a href="https://web.basemark.com/" target="_blank">CPU-Test</a></li>
-                        <li class="uk-nav-header">Tools</li>
-                        <li><a href="https://dillinger.io/" target="_blank">Markdown</a></li>
-                        <li><a href="https://app.diagrams.net/" target="_blank">Diagram</a></li>
-                        <li><a href="https://it-tools.tech/" target="_blank">IT Tools</a></li>
-                        <!--li><a class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" href="https://jdittrich.github.io/quickMockup/" target="_blank">Mockup</a></li-->
-                        <li><a href="https://www.onlinelogomaker.com/logomaker/?lang=pt#" target="_blank">Logomaker</a></li>
-                        <li><a href="https://analytics.google.com/analytics/web/?et#/p321231900/reports/intelligenthome" target="_blank">Google Analytics</a></li>
-                    </ul>
-                </div>
-                <button class="uk-button uk-button-default"  style="padding: 0 10px;" type="button">3D</button>
-                <div class="uk-background-secondary uk-light" uk-dropdown>
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li  class="uk-nav-header">Tools</li>
-                        <li><a href="https://www.tinkercad.com/dashboard" target="_blank">Tinkercad</a></li>
-                        <li><a href="https://www.selfcad.com/" target="_blank">Selfcad</a></li>
-                        <li><a href="https://grid.space/kiri/" target="_blank">Slicer</a></li>
-                        <li><a href="https://octoprint.org/download/" target="_blank">Octoprint</a></li>
-
-                        <li class="uk-nav-header">Models</li>
-                        <li><a href="https://www.thingiverse.com/" target="_blank">Thing I Verse</a></li>
-                        <li><a href="https://www.printables.com/" target="_blank">Printables</a></li>
-                        <!--li><a href="https://makerworld.com/en" target="_blank">Maker World</a></li>
-                        <li><a href="https://stemfie.org/" target="_blank">Stemfie</a></li-->
-                        <li><a href="https://tool.itslitho.com/CreateModel" target="_blank">Lithophane</a></li>
-                        <li><a href="https://topoexport.com/" target="_blank">Topo Export</li>
-                    </ul>
-                </div>
-                <button class="uk-button uk-button-default"  style="padding: 0 10px;" type="button">AI</button>
-                <div class="uk-background-secondary uk-light" uk-dropdown>
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li  class="uk-nav-header">Geen AI</li>
-                        <li><a href="https://chat.openai.com/" target="_blank">ChatGPT</a></li>
-                        <li><a href="https://claude.ai/" target="_blank">ClaudeAI</a></li>
-                        <li><a href="https://chat.deepseek.com/" target="_blank">DeepSeek</a></li>
-                        <li><a href="https://gemini.google.com/" target="_blank">Gemini</a></li>
-                        <li><a href="https://manus.im/" target="_blank">Manus</a></li>
-
-                        <li class="uk-nav-header">AI Tools</li>
-                        <li><a href="https://aistudio.google.com/" target="_blank">Google AI Studio</a></li>
-                        <li><a href="https://nanobananaimg.com/" target="_blank">Nano Banana</a></li>
-                        <li><a href="https://notebooklm.google.com/" target="_blank">NotebookLM</a></li>
-                    </ul>
-                </div>
-                <button class="uk-button uk-button-default"  style="padding: 0 10px;" type="button">Net</button>
-                <div class="uk-background-secondary uk-light" uk-dropdown>
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li class="uk-nav-header">Check</li>
-                        <li><a href="https://www.digicert.com/ssltools/view-csr/" target="_blank">CSR Check</a></li>
-                        <li><a href="https://www.ssllabs.com/ssltest/analyze.html" target="_blank">Analyze SSL</a></li>
-                        <li><a href="https://securityheaders.com" target="_blank">Header Sec.</a></li>
-                        <li><a href="https://testtls.com/" target="_blank">Test tls</a></li>
-                        <li><a href="https://check-host.net/" target="_blank">Check Host</a></li>
-                        <li><a href="https://www.shodan.io/" target="_blank">Shodan</a></li>
-                        <li><a href="https://www.virustotal.com/" target="_blank">Virus Total</a></li>
-                        <!--li><a href="https://check-your-website.server-daten.de/" target="_blank">Check Website</a></li-->
-                        
-                        <li class="uk-nav-header">DNS</li>
-                        <li><a href="https://www.whatsmydns.net/" target="_blank">My DNS</a></li>
-                        <li><a href="https://dnsdumpster.com/" target="_blank">DNS Dumpster</a></li>
-                        <li><a href="https://searchdns.netcraft.com/" target="_blank">Search DNS</a></li>
-                        <li class="uk-nav-header">Ports test</li>
-                        <!--li><a href="http://online-domain-tools.com/" target="_blank">Domain Tools</a></li-->
-                        <li><a href="https://pentest-tools.com/network-vulnerability-scanning/tcp-port-scanner-online-nmap" target="_blank">Port Scan</a></li>
-                        <li><a href="http://mxtoolbox.com/" target="_blank">MX Lookup</a></li>
-                        <li><a href="http://network-tools.com/" target="_blank">Network</a></li>
-                    </ul>
-                </div>
-                <button class="uk-button uk-button-default"  style="padding: 0 10px;" type="button">IaaS</button>
-                <div class="uk-background-secondary uk-light" uk-dropdown>
-                    <ul class="uk-nav uk-dropdown-nav">
-                        <li><a href="https://portal.azure.com/" target="_blank">Azure</a></li>
-                        <li><a href="https://cloud.digitalocean.com/" target="_blank">Digital Ocean</a></li>
-                        <li><a href="https://www.hetzner.com/cloud/" target="_blank">Hetzner</a></li>
-                        <li><a href="http://www.infinityfree.com/" target="_blank">Infinity Free</a></li>
-                        <!--li><a href="http://www.cloudatcost.com/" target="_blank">Cloud At Cost</a></li>
-                        <li><a href="http://www.hostblast.net/" target="_blank">Hostblast</a></li-->
-                        <li><a href="https://www.macincloud.com/" target="_blank">MAC in Cloud</a></li>
-                        <li><a href="https://mongodb.com/" target="_blank">Mongo Lab</a></li>
-                        <li class="uk-nav-header">Status</li>
-                        <li><a href="http://mon.seeu.me/" target="_blank">UpTime Kuma</a></li>
-                        <li><a href="https://uptimerobot.com/" target="_blank">UpTime Robot</a></li>
-                        <li><a href="https://updown.io/checks" target="_blank">UpDown</a></li>
-                        <li><a href="http://www.google.com/appsstatus#hl=pt-BR&amp;v=status" target="_blank">Google Status</a></li>
-                        <li><a href="https://status.firebase.google.com/" target="_blank">FireBase Status</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="uk-position-center uk-position-fixed uk-width-1-1 uk-padding-large uk-background-secondary uk-light">
-                <div uk-grid class="uk-grid-divider uk-grid-small">
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://manus.im/" target="_blank" title="Manus" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/manus.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Manus</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://chat.openai.com/" target="_blank" title="ChatGPT" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/chatgpt.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">ChatGPT</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://notebooklm.google.com/" target="_blank" title="Notebook LM" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/notebooklm.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">NotebookLM</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://gemini.google.com/" target="_blank" title="Gemini" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/Google-Gemini-AI-Icon.jpg">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Gemini</span>
-                        </a>
-                    </div>
-                </div>
-                <hr class="uk-divider-icon">
-                <!-- Primeira linha -->
-                <div uk-grid class="uk-grid-divider uk-grid-small">
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://gmail.com/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/gm.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Gmail</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://proton.me/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/pm.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Proton</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://www.notion.so/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/no.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Notion</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://statusinvest.com.br/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/si.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">StatusInvest</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Segunda linha -->
-                <div uk-grid class="uk-grid-divider uk-grid-small">
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://drive.google.com/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/Google_Drive_icon_(2020).svg.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Drive</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://keep.google.com/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/keep.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Keep</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-default uk-align-center uk-border-rounded" href="https://x.com/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/x.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">X(Twitter)</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-default uk-align-center uk-border-rounded" href="https://www.netflix.com/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/n.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Netflix</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Terceira linha -->
-                <div uk-grid class="uk-grid-divider uk-grid-small">
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-rounded" href="http://google.com/maps" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/Google_Maps_icon_(2020).svg.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Maps</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-rounded" href="https://www.youtube.com/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/youtube.jpg">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">YouTube</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-secondary uk-align-center uk-border-rounded" href="https://outlook.office.com/mail/" target="_blank" title="Outlook" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/Outlook.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Outlook</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-rounded" href="https://web.whatsapp.com/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/wapp.jpg">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-                <div uk-grid class="uk-grid-divider uk-grid-small">
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-circle" href="https://play.google.com/books" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/gbooks.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Books</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-circle" href="https://annas-archive.gl/" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/annas-icon.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Annas</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-rounded" href="https://www.duolingo.com/learn" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/duolingo.jpeg">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Duolingo</span>
-                        </a>
-                    </div>
-                    <div class="uk-width-1-4">
-                        <a class="uk-button uk-button-primary uk-align-center uk-border-rounded" href="https://www.mindmeister.com/app/map/3761251729" target="_blank" style="display: flex; align-items: center; gap: 14px; padding: 8px 8px 8px 18px; height: 50px;">
-                            <img style="width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain;" src="images/mindmaster.png">
-                            <span style="overflow: hidden; text-overflow: ellipsis;">Mindmaster</span>
-                        </a>
-                    </div>
-                </div>
-                <div uk-grid class="uk-grid-divider uk-grid-small">
-                    <div class="uk-width-1-2">
-                        Updated: 21/03/2026 at 13:00h<!-- - <a href="pinout.html" target="_blank">PinOut</a--><br>
-                        <i id="host"></i>
-                    </div>
-                    <div class="uk-width-1-2" style="text-align: right">
-                        <a href="https://illread.web.app/" target="_blank">© Carlos Madera</a><br>
-                        1999-<a href="2048" target="_blank">2048</a> / <a href="retro/index.html" target="_blank">Retro</a>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-position-bottom-center uk-position-fixed uk-position-z-index">
-                <table>
-                <tbody>
-                    <tr>
-                        <td><a class="uk-button uk-button-default uk-button-small uk-button-primary" type="button" href="https://ft.seeu.me/" target="_blank">ft</a></td>
-                        <td><a class="uk-button uk-button-default uk-button-small uk-button-primary" type="button" href="https://gitlab.com/cmadera/" target="_blank">GitLab</a></td>
-                        <td><a class="uk-button uk-button-default uk-button-small uk-button-primary" type="button" href="https://github.com/cmadera" target="_blank">GitHub</a></td>
-                        <td><a class="uk-button uk-button-default uk-button-small uk-button-primary" type="button" href="https://ssh.cloud.google.com/cloudshell/editor" target="_blank">GCloud</a></td>
-                        <!--td><a href="https://whereby.com/carlos.madera" target="_blank">Where by</a></td-->
-                        <td><a class="uk-button uk-button-default uk-button-small uk-button-primary" type="button" href="#modal-example" uk-toggle>Servers</a></td>
-                        <!--td><a href="http://bigbank.com.br/monitor/" target="_blank">Monitor</a></td>
-                            http://carlosmadera.blogspot.com
-                            http://solucaodeproblemas.blogspot.com
-                            https://pesquisando.tumblr.com/
-                        <td><a href="http://bigbank.com.br/codiad/" target="_blank">Codiad</a></td-->
-                    </tr>
-                </tbody>
-                </table>              
-            </div>
-        </div>
-    </div>
-    <script>document.getElementById('host').innerHTML = "Server: "+document.location.hostname;</script>
-
-    <div id="modal-example" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-background-secondary uk-light">
-            <table id="servers" class="uk-table  uk-table-hover  uk-table-small">
-                <thead><tr><th><b>Domain</b></th><th><b>Register</b></th><th><b>Hosting</b></th><th><b>Email</b></th></tr></thead>
-                <tbody>
-                    <tr><td><a href='http://bigbank.com.br' target='_blank'><b>Bigbank</b></a></td><td><a href='https://cloud.digitalocean.com' target='_blank'><b>D.Ocean</b></a></td><td><a href='https://console.firebase.google.com/project/bigbank-dd7c8/overview' target='_blank'><b>FireBase</b></a></td><td><a href='http://mail.bigbank.com.br' target='_blank'><b>Mail</b></a></td></tr>
-                    <tr><td><a href='http://seeu.me' target='_blank'><b>SeeU</b></a></td><td><a href='https://account.squarespace.com/domains/managed/seeu.me' target='_blank'><b>SquareSpace</b></a></td><td><a href='https://i.seeu.me' target='_blank'><b>Hetzner</b></a></td><td><a href='http://mon.seeu.me' target='_blank'><b>Mon</b></a></td></tr>
-                    <tr><td><a href='http://nycrawler.com' target='_blank'><b>NyCrawler</b></a></td><td><a href='https://account.squarespace.com/domains/managed/nycrawler.com' target='_blank'><b>SquareSpace</b></a></td><td><a href='https://console.firebase.google.com/project/nycrawlerby/overview' target='_blank'><b>FireBase</b></a></td><td>&nbsp;</td></tr>
-                    <tr><td><a href='http://utopiasargentinas.com' target='_blank'><b>UtopiasArgentinas</b></a></td><td><a href='https://account.squarespace.com/domains/managed/seeu.me' target='_blank'><b>SquareSpace</b></a></td><td><a href='https://www.blogger.com/blogger.g?blogID=5261229321325436198#allposts' target='_blank'><b>Blogger</b></a></td>
-                        <td><a href='http://mail.utopiasargentinas.com' target='_blank'><b>Mail</b></a></td></tr>
-                    <tr><td><a href='http://carlosmadera.blogspot.com' target='_blank'><b>CURIOSAMENTE</b></a></td>
-                        <td><a href='http://solucaodeproblemas.blogspot.com' target='_blank'><b>Soluções</b></a></td>
-                        <td><a href='http://pesquisando.tumblr.com/' target='_blank'><b>Tumblr</b></a></td><td><a href='https://setup.seeu.me/' target='_blank'><b>Setup</b></a></td></tr>
-                </tbody>
-            </table>
-            <button class="uk-button uk-button-default uk-modal-close uk-align-center" type="button">X</button>
-        </div>
-    </div>
-
-    <script src="uikit/js/uikit.min.js"></script>
-    <script src="uikit/js/uikit-icons.min.js"></script>
-
-	<script type="text/javascript">
-		  var modal = document.getElementById("myModal");
-		  window.onclick = function(event) {
-			  if (event.target == modal) { modal.style.display = "none";}
-		  }
-	  </script>	
 </body>
 </html>
